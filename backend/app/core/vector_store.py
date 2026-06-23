@@ -4,11 +4,13 @@ Multi-tenancy: se usa una única colección con un índice de payload sobre
 `institution_id`. Cada búsqueda filtra por institución, garantizando el
 aislamiento del conocimiento entre entidades (patrón recomendado por Qdrant).
 
-Si `QDRANT_URL` está vacío, se utiliza Qdrant embebido en memoria, lo que
-permite ejecutar el backend y las pruebas sin un servicio externo.
+Si `QDRANT_URL` está vacío, se utiliza Qdrant embebido. Si además se define
+`QDRANT_PATH`, los vectores se persisten en disco (ideal para ejecución local
+sin servidor); en caso contrario se usa el modo en memoria (pruebas).
 """
 from __future__ import annotations
 
+import os
 import uuid
 from typing import List, Optional
 
@@ -25,13 +27,19 @@ class VectorStore:
         embedder: EmbeddingProvider,
         url: str = "",
         api_key: str = "",
+        path: str = "",
     ):
         self.collection = collection
         self.embedder = embedder
         if url:
+            # Servidor Qdrant externo (p. ej. Docker).
             self.client = QdrantClient(url=url, api_key=api_key or None, timeout=30)
+        elif path:
+            # Qdrant embebido y persistente en disco (ejecución local sin servidor).
+            os.makedirs(path, exist_ok=True)
+            self.client = QdrantClient(path=path)
         else:
-            # Modo embebido en memoria (desarrollo / pruebas).
+            # Modo embebido en memoria (pruebas).
             self.client = QdrantClient(location=":memory:")
         self._ensure_collection()
 

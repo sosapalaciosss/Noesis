@@ -33,6 +33,7 @@ class Settings(BaseSettings):
     # --- Qdrant ---
     qdrant_url: str = Field(default="", alias="QDRANT_URL")
     qdrant_api_key: str = Field(default="", alias="QDRANT_API_KEY")
+    qdrant_path: str = Field(default="", alias="QDRANT_PATH")
     qdrant_collection: str = Field(default="noesis_chunks", alias="QDRANT_COLLECTION")
 
     # --- Metadatos ---

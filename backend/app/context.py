@@ -22,6 +22,7 @@ class AppContext:
             embedder=self.embedder,
             url=settings.qdrant_url,
             api_key=settings.qdrant_api_key,
+            path=settings.qdrant_path,
         )
         self.llm, self.uses_real_llm = build_llm(
             settings.mistral_api_key, settings.mistral_model
