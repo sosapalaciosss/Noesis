@@ -1,0 +1,13 @@
+# Dependencias mínimas para ejecutar la suite de pruebas sin descargar
+# modelos pesados (torch/sentence-transformers). Las pruebas usan el
+# proveedor de embeddings "hash" y Qdrant embebido en memoria.
+fastapi==0.115.6
+python-multipart==0.0.20
+pydantic==2.10.4
+pydantic-settings==2.7.1
+SQLAlchemy==2.0.36
+qdrant-client==1.12.2
+pypdf==5.1.0
+python-docx==1.1.2
+pytest==8.3.4
+httpx==0.28.1
