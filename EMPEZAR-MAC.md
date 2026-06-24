@@ -11,6 +11,26 @@ la aplicación.
 
 ---
 
+## ⚡ Opción rápida: iniciar con un clic
+
+Si ya descargaste el proyecto (Paso 2 de abajo) y tienes **Python 3** y
+**Node.js** instalados, no necesitas escribir comandos cada vez:
+
+1. Abre la carpeta **Noesis** en Finder.
+2. Haz **doble clic** en el archivo **`iniciar.command`**.
+
+Se abrirá una ventana de Terminal que instala todo la primera vez, enciende el
+backend y el frontend, y **abre Noesis en tu navegador** automáticamente. Para
+apagarlo, pulsa `Ctrl + C` en esa ventana o ciérrala.
+
+> Si macOS muestra *"no se puede abrir porque proviene de un desarrollador no
+> identificado"*, haz clic derecho sobre `iniciar.command` → **Abrir** →
+> **Abrir**. Solo hace falta la primera vez.
+
+¿Prefieres entender cada paso o no te funcionó el clic? Sigue la guía manual.
+
+---
+
 ## Paso 1 · Instalar lo necesario (solo la primera vez)
 
 ### 1.1 Homebrew (gestor de instalaciones de Mac)
