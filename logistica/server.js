@@ -55,6 +55,38 @@ app.get('/api/viajes/:idOcodigo', (req, res) => {
   res.json({ viaje: trip, eventos: obtenerEventos(trip.id) });
 });
 
+// Registrar un nuevo evento en un viaje (lo usa la Vista del Conductor).
+// Avanza el estado del viaje y guarda el evento en el historial.
+app.post('/api/viajes/:idOcodigo/eventos', (req, res) => {
+  const trip = obtenerTrip(req.params.idOcodigo);
+  if (!trip) return res.status(404).json({ error: 'Viaje no encontrado' });
+
+  const { estado, nota } = req.body || {};
+  if (!estado || !TRIP_STATES.includes(estado)) {
+    return res.status(400).json({ error: 'Estado invalido' });
+  }
+
+  // El estado solo puede avanzar (no retroceder ni repetirse).
+  const posActual = TRIP_STATES.indexOf(trip.estado_actual);
+  const posNuevo = TRIP_STATES.indexOf(estado);
+  if (posNuevo <= posActual) {
+    return res.status(400).json({
+      error: `El viaje ya esta en "${trip.estado_actual}" o mas avanzado.`,
+    });
+  }
+
+  const guardar = db.transaction(() => {
+    db.prepare('INSERT INTO events (trip_id, estado, nota) VALUES (?, ?, ?)')
+      .run(trip.id, estado, (nota || '').trim() || null);
+    db.prepare("UPDATE trips SET estado_actual = ?, actualizado_en = datetime('now') WHERE id = ?")
+      .run(estado, trip.id);
+  });
+  guardar();
+
+  const actualizado = obtenerTrip(trip.id);
+  res.json({ ok: true, viaje: actualizado, eventos: obtenerEventos(trip.id) });
+});
+
 app.listen(PORT, () => {
   console.log(`\n  Plataforma de Trazabilidad Logistica`);
   console.log(`  Servidor en linea: http://localhost:${PORT}`);
