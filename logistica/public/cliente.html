@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seguimiento de Envio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f1f5f9; color: #0f172a; margin: 0;
+      padding: 16px; max-width: 560px; margin: 0 auto;
+    }
+    h1 { font-size: 1.5rem; margin: 12px 0 4px; }
+    .sub { color: #64748b; margin: 0 0 20px; }
+
+    .buscador { display: flex; gap: 8px; margin-bottom: 8px; }
+    input {
+      flex: 1; padding: 14px; font-size: 1rem; border-radius: 12px;
+      border: 1px solid #cbd5e1; background: white;
+    }
+    button {
+      padding: 14px 20px; font-size: 1rem; font-weight: 600; border: none;
+      border-radius: 12px; background: #1d4ed8; color: white; cursor: pointer;
+    }
+    button:active { transform: scale(0.98); }
+
+    .card {
+      background: white; border-radius: 16px; padding: 24px; margin-top: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.06);
+    }
+    .codigo { font-size: .85rem; color: #64748b; letter-spacing: 1px; }
+    .ruta { font-size: 1.3rem; font-weight: 700; margin: 4px 0 16px; }
+
+    .estado-actual {
+      display: inline-block; padding: 10px 18px; border-radius: 999px;
+      background: #dbeafe; color: #1d4ed8; font-weight: 700; font-size: 1rem;
+    }
+    .estado-actual.fin { background: #dcfce7; color: #15803d; }
+
+    .progreso { margin: 22px 0 8px; }
+    .paso { display: flex; gap: 12px; padding: 4px 0; position: relative; }
+    .linea { width: 22px; display: flex; flex-direction: column; align-items: center; }
+    .punto { width: 18px; height: 18px; border-radius: 50%; background: #e2e8f0; z-index: 1;
+             display:flex; align-items:center; justify-content:center; font-size:.65rem; color:#64748b; }
+    .conector { width: 2px; flex: 1; background: #e2e8f0; }
+    .paso.hecho .punto { background: #22c55e; color: white; }
+    .paso.hecho .conector { background: #22c55e; }
+    .paso.actual .punto { background: #2563eb; color: white; }
+    .texto { padding-bottom: 14px; }
+    .texto .nombre { font-weight: 600; }
+    .paso.pendiente .nombre { color: #94a3b8; font-weight: 500; }
+    .texto .fecha { font-size: .8rem; color: #64748b; }
+    .texto .nota { font-size: .85rem; color: #475569; margin-top: 2px; font-style: italic; }
+
+    .aviso { margin-top: 16px; padding: 16px; border-radius: 12px; background: #fee2e2;
+             color: #b91c1c; display: none; }
+    .aviso.visible { display: block; }
+    .pie { text-align: center; color: #94a3b8; font-size: .8rem; margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <h1>📦 Seguimiento de tu Envio</h1>
+  <p class="sub">Ingresa tu codigo de seguimiento para ver el estado.</p>
+
+  <div class="buscador">
+    <input id="codigo" placeholder="Ej: TRK-1001" autocomplete="off" />
+    <button id="btnBuscar">Buscar</button>
+  </div>
+
+  <div class="aviso" id="aviso"></div>
+  <div id="resultado"></div>
+
+  <p class="pie">Esta es una pagina informativa de solo lectura.</p>
+
+  <script>
+    const inputCodigo = document.getElementById('codigo');
+    const btnBuscar = document.getElementById('btnBuscar');
+    const aviso = document.getElementById('aviso');
+    const resultado = document.getElementById('resultado');
+    let ESTADOS = [];
+
+    function fmtFecha(s) {
+      // s viene como "2026-06-26 02:23:08" (hora del servidor)
+      const d = new Date(s.replace(' ', 'T'));
+      if (isNaN(d)) return s;
+      return d.toLocaleString('es', { dateStyle: 'medium', timeStyle: 'short' });
+    }
+
+    async function cargarEstados() {
+      const r = await fetch('/api/estados');
+      ESTADOS = (await r.json()).estados;
+    }
+
+    async function buscar(codigo) {
+      codigo = (codigo || '').trim().toUpperCase();
+      if (!codigo) return;
+      aviso.classList.remove('visible');
+      resultado.innerHTML = '';
+      // Refleja el codigo en la URL para poder compartir el enlace.
+      history.replaceState(null, '', '?codigo=' + encodeURIComponent(codigo));
+
+      try {
+        const r = await fetch('/api/viajes/' + encodeURIComponent(codigo));
+        if (r.status === 404) {
+          aviso.textContent = 'No encontramos ningun envio con el codigo "' + codigo + '". Revisa que este bien escrito.';
+          aviso.classList.add('visible');
+          return;
+        }
+        const { viaje, eventos } = await r.json();
+        render(viaje, eventos);
+      } catch (e) {
+        aviso.textContent = 'No se pudo conectar con el servidor.';
+        aviso.classList.add('visible');
+      }
+    }
+
+    function render(viaje, eventos) {
+      const posActual = ESTADOS.indexOf(viaje.estado_actual);
+      const finalizado = posActual === ESTADOS.length - 1;
+
+      // Mapa estado -> evento (para fecha y nota)
+      const porEstado = {};
+      eventos.forEach(e => { porEstado[e.estado] = e; });
+
+      const pasos = ESTADOS.map((nombre, i) => {
+        const clase = i < posActual ? 'hecho' : i === posActual ? 'actual hecho' : 'pendiente';
+        const ev = porEstado[nombre];
+        const icono = i <= posActual ? '✓' : '';
+        const esUltimo = i === ESTADOS.length - 1;
+        return `
+          <div class="paso ${clase}">
+            <div class="linea">
+              <div class="punto">${icono}</div>
+              ${esUltimo ? '' : '<div class="conector"></div>'}
+            </div>
+            <div class="texto">
+              <div class="nombre">${nombre}</div>
+              ${ev ? `<div class="fecha">${fmtFecha(ev.creado_en)}</div>` : ''}
+              ${ev && ev.nota ? `<div class="nota">${ev.nota}</div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+
+      resultado.innerHTML = `
+        <div class="card">
+          <div class="codigo">${viaje.codigo}</div>
+          <div class="ruta">${viaje.origen} → ${viaje.destino}</div>
+          <span class="estado-actual ${finalizado ? 'fin' : ''}">
+            ${finalizado ? '✅ ' : '🚚 '}${viaje.estado_actual}
+          </span>
+          <div class="progreso">${pasos}</div>
+        </div>`;
+    }
+
+    btnBuscar.onclick = () => buscar(inputCodigo.value);
+    inputCodigo.addEventListener('keydown', e => { if (e.key === 'Enter') buscar(inputCodigo.value); });
+
+    // Al abrir: si la URL trae ?codigo=XXX, busca automaticamente.
+    (async () => {
+      await cargarEstados();
+      const params = new URLSearchParams(location.search);
+      const c = params.get('codigo');
+      if (c) { inputCodigo.value = c; buscar(c); }
+    })();
+  </script>
+</body>
+</html>
