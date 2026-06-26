@@ -46,6 +46,12 @@ function init() {
       FOREIGN KEY (trip_id) REFERENCES trips(id) ON DELETE CASCADE
     );
   `);
+
+  // Migracion: columnas de ubicacion (se agregan solo si faltan).
+  const columnas = db.prepare("PRAGMA table_info(trips)").all().map(c => c.name);
+  if (!columnas.includes('lat')) db.exec('ALTER TABLE trips ADD COLUMN lat REAL');
+  if (!columnas.includes('lng')) db.exec('ALTER TABLE trips ADD COLUMN lng REAL');
+  if (!columnas.includes('ubicacion_en')) db.exec('ALTER TABLE trips ADD COLUMN ubicacion_en TEXT');
 }
 
 module.exports = { db, init, TRIP_STATES, DB_PATH };

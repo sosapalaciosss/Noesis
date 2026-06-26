@@ -87,6 +87,22 @@ app.post('/api/viajes/:idOcodigo/eventos', (req, res) => {
   res.json({ ok: true, viaje: actualizado, eventos: obtenerEventos(trip.id) });
 });
 
+// Recibir la ubicacion actual del motorista (lo envia su telefono).
+app.post('/api/viajes/:idOcodigo/ubicacion', (req, res) => {
+  const trip = obtenerTrip(req.params.idOcodigo);
+  if (!trip) return res.status(404).json({ error: 'Viaje no encontrado' });
+
+  const { lat, lng } = req.body || {};
+  if (typeof lat !== 'number' || typeof lng !== 'number' ||
+      lat < -90 || lat > 90 || lng < -180 || lng > 180) {
+    return res.status(400).json({ error: 'Coordenadas invalidas' });
+  }
+
+  db.prepare("UPDATE trips SET lat = ?, lng = ?, ubicacion_en = datetime('now') WHERE id = ?")
+    .run(lat, lng, trip.id);
+  res.json({ ok: true });
+});
+
 app.listen(PORT, () => {
   console.log(`\n  Plataforma de Trazabilidad Logistica`);
   console.log(`  Servidor en linea: http://localhost:${PORT}`);

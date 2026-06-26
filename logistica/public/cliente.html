@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seguimiento de Envio</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -53,6 +55,12 @@
     .texto .fecha { font-size: .8rem; color: #64748b; }
     .texto .nota { font-size: .85rem; color: #475569; margin-top: 2px; font-style: italic; }
 
+    .mapa-titulo { font-weight: 600; margin: 18px 0 8px; }
+    #mapa { height: 260px; border-radius: 12px; overflow: hidden; background: #e2e8f0; }
+    .sin-mapa { padding: 24px; text-align: center; color: #64748b; background: #f8fafc;
+                border-radius: 12px; border: 1px dashed #cbd5e1; }
+    .vivo { font-size: .8rem; color: #16a34a; margin-top: 6px; }
+    .icono-camion { font-size: 26px; line-height: 1; text-align: center; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
     .aviso { margin-top: 16px; padding: 16px; border-radius: 12px; background: #fee2e2;
              color: #b91c1c; display: none; }
     .aviso.visible { display: block; }
@@ -79,6 +87,9 @@
     const aviso = document.getElementById('aviso');
     const resultado = document.getElementById('resultado');
     let ESTADOS = [];
+    let codigoActual = null;   // codigo que se esta mostrando
+    let refrescoTimer = null;  // actualizacion automatica del mapa
+    let map = null, marker = null;
 
     function fmtFecha(s) {
       // s viene como "2026-06-26 02:23:08" (hora del servidor)
@@ -92,11 +103,18 @@
       ESTADOS = (await r.json()).estados;
     }
 
+    function detenerRefresco() {
+      if (refrescoTimer) { clearInterval(refrescoTimer); refrescoTimer = null; }
+      if (map) { map.remove(); map = null; marker = null; }
+    }
+
     async function buscar(codigo) {
       codigo = (codigo || '').trim().toUpperCase();
       if (!codigo) return;
       aviso.classList.remove('visible');
       resultado.innerHTML = '';
+      detenerRefresco();
+      codigoActual = codigo;
       // Refleja el codigo en la URL para poder compartir el enlace.
       history.replaceState(null, '', '?codigo=' + encodeURIComponent(codigo));
 
@@ -108,22 +126,20 @@
           return;
         }
         const { viaje, eventos } = await r.json();
-        render(viaje, eventos);
+        renderCompleto(viaje, eventos);
+        // Actualizacion automatica cada 6 segundos (para ver el mapa moverse).
+        refrescoTimer = setInterval(refrescar, 6000);
       } catch (e) {
         aviso.textContent = 'No se pudo conectar con el servidor.';
         aviso.classList.add('visible');
       }
     }
 
-    function render(viaje, eventos) {
+    function lineaTiempo(viaje, eventos) {
       const posActual = ESTADOS.indexOf(viaje.estado_actual);
-      const finalizado = posActual === ESTADOS.length - 1;
-
-      // Mapa estado -> evento (para fecha y nota)
       const porEstado = {};
       eventos.forEach(e => { porEstado[e.estado] = e; });
-
-      const pasos = ESTADOS.map((nombre, i) => {
+      return ESTADOS.map((nombre, i) => {
         const clase = i < posActual ? 'hecho' : i === posActual ? 'actual hecho' : 'pendiente';
         const ev = porEstado[nombre];
         const icono = i <= posActual ? '✓' : '';
@@ -141,16 +157,75 @@
             </div>
           </div>`;
       }).join('');
+    }
 
+    function badgeHTML(viaje) {
+      const finalizado = ESTADOS.indexOf(viaje.estado_actual) === ESTADOS.length - 1;
+      return `<span class="estado-actual ${finalizado ? 'fin' : ''}">
+        ${finalizado ? '✅ ' : '🚚 '}${viaje.estado_actual}</span>`;
+    }
+
+    function renderCompleto(viaje, eventos) {
       resultado.innerHTML = `
         <div class="card">
           <div class="codigo">${viaje.codigo}</div>
           <div class="ruta">${viaje.origen} → ${viaje.destino}</div>
-          <span class="estado-actual ${finalizado ? 'fin' : ''}">
-            ${finalizado ? '✅ ' : '🚚 '}${viaje.estado_actual}
-          </span>
-          <div class="progreso">${pasos}</div>
+          <div id="badge">${badgeHTML(viaje)}</div>
+          <div class="mapa-titulo">📍 Ubicacion del camion</div>
+          <div id="mapaWrap"></div>
+          <div class="progreso" id="progreso">${lineaTiempo(viaje, eventos)}</div>
         </div>`;
+      actualizarMapa(viaje);
+    }
+
+    function actualizarMapa(viaje) {
+      const wrap = document.getElementById('mapaWrap');
+      if (!wrap) return;
+      const tieneUbic = typeof viaje.lat === 'number' && typeof viaje.lng === 'number';
+
+      if (!tieneUbic) {
+        if (map) { map.remove(); map = null; marker = null; }
+        wrap.innerHTML = '<div class="sin-mapa">Aun no hay ubicacion compartida para este envio.</div>';
+        return;
+      }
+
+      // Si la libreria de mapas no cargo (sin internet), no rompemos el resto.
+      if (typeof L === 'undefined') {
+        wrap.innerHTML = '<div class="sin-mapa">No se pudo cargar el mapa (revisa tu conexion a internet). ' +
+          'El seguimiento del envio sigue disponible arriba.</div>';
+        return;
+      }
+
+      const pos = [viaje.lat, viaje.lng];
+      if (!map) {
+        wrap.innerHTML = '<div id="mapa"></div>';
+        map = L.map('mapa').setView(pos, 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap', maxZoom: 18,
+        }).addTo(map);
+        const icono = L.divIcon({ html: '🚚', className: 'icono-camion',
+          iconSize: [30, 30], iconAnchor: [15, 15] });
+        marker = L.marker(pos, { icon: icono }).addTo(map);
+      } else {
+        marker.setLatLng(pos);
+        map.panTo(pos);
+      }
+      const cuando = viaje.ubicacion_en ? ' · actualizada ' + fmtFecha(viaje.ubicacion_en) : '';
+      let vivo = wrap.querySelector('.vivo');
+      if (!vivo) { vivo = document.createElement('div'); vivo.className = 'vivo'; wrap.appendChild(vivo); }
+      vivo.textContent = '🟢 En vivo' + cuando;
+    }
+
+    async function refrescar() {
+      if (!codigoActual) return;
+      try {
+        const r = await fetch('/api/viajes/' + encodeURIComponent(codigoActual));
+        if (!r.ok) return;
+        const { viaje, eventos } = await r.json();
+        document.getElementById('badge').innerHTML = badgeHTML(viaje);
+        document.getElementById('progreso').innerHTML = lineaTiempo(viaje, eventos);
+        actualizarMapa(viaje);
+      } catch (e) { /* reintenta en el proximo ciclo */ }
     }
 
     btnBuscar.onclick = () => buscar(inputCodigo.value);

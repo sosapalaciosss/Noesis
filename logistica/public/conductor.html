@@ -51,6 +51,14 @@
       text-align: center; padding: 20px; background: #064e3b; border-radius: 16px;
       margin-top: 16px; color: #4ade80; font-weight: 700; font-size: 1.1rem;
     }
+    .ubic { margin-top: 18px; border-top: 1px solid #334155; padding-top: 16px; }
+    .boton-ubic {
+      width: 100%; padding: 16px; font-size: 1.05rem; font-weight: 700; border: none;
+      border-radius: 14px; background: #2563eb; color: white; cursor: pointer;
+    }
+    .boton-ubic.activo { background: #b91c1c; }
+    .boton-ubic:active { transform: scale(0.98); }
+    .ubic-estado { margin-top: 10px; font-size: .85rem; color: #94a3b8; text-align: center; }
     .aviso { margin-top: 14px; padding: 12px 16px; border-radius: 12px; font-size: .95rem; display: none; }
     .aviso.ok { background: #064e3b; color: #4ade80; display: block; }
     .aviso.error { background: #7f1d1d; color: #fecaca; display: block; }
@@ -120,10 +128,77 @@
           <div class="progreso">${pasos}</div>
           ${accion}
           <div class="aviso" id="aviso"></div>
+          <div class="ubic">
+            <button class="boton-ubic" id="btnUbic">📍 Compartir mi ubicacion</button>
+            <div class="ubic-estado" id="ubicEstado"></div>
+          </div>
         </div>`;
 
       if (siguiente) {
         document.getElementById('btnAvanzar').onclick = () => registrar(id, siguiente);
+      }
+      configurarUbicacion(id);
+    }
+
+    // --- Compartir ubicacion en vivo ---
+    let watchId = null;       // id del rastreo del navegador
+    let viajeUbic = null;     // viaje al que se le envia ubicacion
+
+    function detenerUbicacion() {
+      if (watchId !== null) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+      viajeUbic = null;
+    }
+
+    function configurarUbicacion(id) {
+      // Al cambiar de viaje, detenemos cualquier rastreo anterior.
+      detenerUbicacion();
+      const btn = document.getElementById('btnUbic');
+      const estado = document.getElementById('ubicEstado');
+      if (!btn) return;
+
+      if (!('geolocation' in navigator)) {
+        btn.disabled = true;
+        estado.textContent = 'Este dispositivo no permite ubicacion.';
+        return;
+      }
+
+      btn.onclick = () => {
+        if (watchId !== null) {           // ya esta compartiendo -> detener
+          detenerUbicacion();
+          btn.classList.remove('activo');
+          btn.textContent = '📍 Compartir mi ubicacion';
+          estado.textContent = 'Ubicacion detenida.';
+          return;
+        }
+        viajeUbic = id;
+        estado.textContent = 'Pidiendo permiso de ubicacion...';
+        watchId = navigator.geolocation.watchPosition(
+          (pos) => enviarUbicacion(pos, estado),
+          (err) => {
+            estado.textContent = '⚠️ No se pudo obtener ubicacion: ' + err.message;
+            detenerUbicacion();
+            btn.classList.remove('activo');
+            btn.textContent = '📍 Compartir mi ubicacion';
+          },
+          { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
+        );
+        btn.classList.add('activo');
+        btn.textContent = '⏹ Detener ubicacion';
+      };
+    }
+
+    async function enviarUbicacion(pos, estado) {
+      const lat = pos.coords.latitude, lng = pos.coords.longitude;
+      try {
+        await fetch('/api/viajes/' + viajeUbic + '/ubicacion', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ lat, lng }),
+        });
+        const hora = new Date().toLocaleTimeString('es');
+        estado.textContent = '🟢 Compartiendo ubicacion · ultima: ' + hora;
+      } catch (e) {
+        estado.textContent = '⚠️ Sin conexion con el servidor.';
       }
     }
 

@@ -14,6 +14,7 @@ const ejemplos = [
     destino: 'Santa Ana',
     conductor: 'Carlos Mejia',
     estado_actual: 'En ruta',
+    lat: 13.8400, lng: -89.3900, // a medio camino San Salvador -> Santa Ana
     eventos: [
       { estado: 'Pendiente', nota: 'Viaje creado' },
       { estado: 'Inicio de carga', nota: 'Carga de 200 cajas' },
@@ -27,6 +28,7 @@ const ejemplos = [
     destino: 'San Miguel',
     conductor: 'Ana Ramirez',
     estado_actual: 'Llegada al destino',
+    lat: 13.4833, lng: -88.1833, // San Miguel (destino)
     eventos: [
       { estado: 'Pendiente', nota: 'Viaje creado' },
       { estado: 'Inicio de carga', nota: 'Materiales de construccion' },
@@ -41,6 +43,7 @@ const ejemplos = [
     destino: 'Sonsonate',
     conductor: 'Jose Portillo',
     estado_actual: 'Pendiente',
+    lat: null, lng: null, // aun sin ubicacion (no ha salido)
     eventos: [
       { estado: 'Pendiente', nota: 'Viaje creado, esperando carga' },
     ],
@@ -51,8 +54,8 @@ const borrarEventos = db.prepare('DELETE FROM events');
 const borrarTrips = db.prepare('DELETE FROM trips');
 
 const insertarTrip = db.prepare(`
-  INSERT INTO trips (codigo, cliente, origen, destino, conductor, estado_actual)
-  VALUES (@codigo, @cliente, @origen, @destino, @conductor, @estado_actual)
+  INSERT INTO trips (codigo, cliente, origen, destino, conductor, estado_actual, lat, lng)
+  VALUES (@codigo, @cliente, @origen, @destino, @conductor, @estado_actual, @lat, @lng)
 `);
 
 const insertarEvento = db.prepare(`
