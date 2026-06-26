@@ -75,6 +75,10 @@ const cargar = db.transaction(() => {
 
 cargar();
 
+// Para la demo: dejamos TRK-1003 "atascado" (sin cambios desde hace 3 horas)
+// para que el Panel del Dueno muestre una alerta de inmediato.
+db.prepare("UPDATE trips SET actualizado_en = datetime('now', '-3 hours') WHERE codigo = 'TRK-1003'").run();
+
 const total = db.prepare('SELECT COUNT(*) AS n FROM trips').get().n;
 console.log(`Datos de prueba cargados: ${total} viajes.`);
 console.log('Estados disponibles:', TRIP_STATES.join(' -> '));

@@ -9,6 +9,9 @@ const { db, init, TRIP_STATES } = require('./db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Minutos sin cambiar de estado tras los cuales un viaje se marca "atascado".
+const UMBRAL_ALERTA_MIN = Number(process.env.UMBRAL_ALERTA_MIN) || 60;
+
 // Asegura que las tablas existan al arrancar.
 init();
 
@@ -46,6 +49,31 @@ app.get('/api/estados', (req, res) => {
 app.get('/api/viajes', (req, res) => {
   const viajes = db.prepare('SELECT * FROM trips ORDER BY actualizado_en DESC').all();
   res.json({ viajes });
+});
+
+// Panel del dueno: todos los viajes con tiempo sin cambio y alertas.
+app.get('/api/panel', (req, res) => {
+  const estadoFinal = TRIP_STATES[TRIP_STATES.length - 1];
+  const viajes = db.prepare(`
+    SELECT *,
+      CAST((julianday('now') - julianday(actualizado_en)) * 1440 AS INTEGER) AS minutos_inactivo
+    FROM trips
+    ORDER BY actualizado_en ASC
+  `).all();
+
+  for (const v of viajes) {
+    v.finalizado = v.estado_actual === estadoFinal;
+    // Solo se alerta de viajes activos (no finalizados) que llevan demasiado tiempo igual.
+    v.alerta = !v.finalizado && v.minutos_inactivo >= UMBRAL_ALERTA_MIN;
+  }
+
+  res.json({
+    umbral_min: UMBRAL_ALERTA_MIN,
+    activos: viajes.filter(v => !v.finalizado).length,
+    finalizados: viajes.filter(v => v.finalizado).length,
+    en_alerta: viajes.filter(v => v.alerta).length,
+    viajes,
+  });
 });
 
 // Un viaje con su historial (por id o por codigo de seguimiento).
