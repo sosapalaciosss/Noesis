@@ -39,8 +39,19 @@
     a.codlink { color: #93c5fd; text-decoration: none; }
     .nav { margin-top: 20px; text-align: center; }
     .nav a { color: #60a5fa; text-decoration: none; font-size: .85rem; }
+
+    /* En telefono, la tabla se convierte en tarjetas apiladas. */
     @media (max-width: 640px) {
-      .ocultar-movil { display: none; }
+      table { background: transparent; }
+      thead { display: none; }
+      tbody, tr, td { display: block; width: 100%; }
+      tr { background: #1e293b; border: none; border-radius: 14px; margin-bottom: 12px; padding: 6px 0; }
+      tr.fila-alerta { background: #422006; }
+      td { display: flex; justify-content: space-between; align-items: center; gap: 12px;
+           padding: 8px 16px; border: none; }
+      td::before { content: attr(data-label); color: #94a3b8; font-size: .8rem; font-weight: 600; }
+      td.cod { font-size: 1.15rem; font-weight: 700; padding-top: 12px; }
+      td.cod::before { display: none; }
     }
   </style>
 </head>
@@ -55,8 +66,8 @@
       <tr>
         <th>Codigo</th>
         <th>Cliente</th>
-        <th class="ocultar-movil">Ruta</th>
-        <th class="ocultar-movil">Conductor</th>
+        <th>Ruta</th>
+        <th>Conductor</th>
         <th>Estado</th>
         <th>Sin cambios</th>
         <th>Alerta</th>
@@ -105,13 +116,13 @@
 
       cuerpo.innerHTML = orden.map(v => `
         <tr class="${v.alerta ? 'fila-alerta' : ''}">
-          <td><a class="codlink" href="/cliente.html?codigo=${v.codigo}" target="_blank">${v.codigo}</a></td>
-          <td>${v.cliente}</td>
-          <td class="ocultar-movil">${v.origen} → ${v.destino}</td>
-          <td class="ocultar-movil">${v.conductor}</td>
-          <td><span class="pill estado ${v.finalizado ? 'fin' : ''}">${v.estado_actual}</span></td>
-          <td>${v.finalizado ? '—' : tiempoTexto(v.minutos_inactivo)}</td>
-          <td>${v.alerta ? '<span class="badge-alerta">⚠️ Atascado</span>' : '<span class="ok-chip">✓ OK</span>'}</td>
+          <td class="cod"><a class="codlink" href="/cliente.html?codigo=${v.codigo}" target="_blank">${v.codigo}</a></td>
+          <td data-label="Cliente">${v.cliente}</td>
+          <td data-label="Ruta">${v.origen} → ${v.destino}</td>
+          <td data-label="Conductor">${v.conductor}</td>
+          <td data-label="Estado"><span class="pill estado ${v.finalizado ? 'fin' : ''}">${v.estado_actual}</span></td>
+          <td data-label="Sin cambios">${v.finalizado ? '—' : tiempoTexto(v.minutos_inactivo)}</td>
+          <td data-label="Alerta">${v.alerta ? '<span class="badge-alerta">⚠️ Atascado</span>' : '<span class="ok-chip">✓ OK</span>'}</td>
         </tr>`).join('');
     }
 
