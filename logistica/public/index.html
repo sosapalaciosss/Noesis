@@ -3,49 +3,512 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trazabilidad Logistica</title>
+  <title>Transporte D Todo — Logística y seguimiento en tiempo real</title>
+  <meta name="description" content="Transporte de carga con seguimiento en tiempo real. Ubica tu pedido con tu código y mira dónde va tu envío en el mapa, minuto a minuto." />
+  <link rel="stylesheet" href="/marca.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
-    body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0;
-           display: flex; min-height: 100vh; margin: 0; align-items: center; justify-content: center; }
-    .card { background: #1e293b; padding: 40px; border-radius: 16px; text-align: center; max-width: 460px; }
-    h1 { margin: 0 0 8px; }
-    .ok { color: #4ade80; font-weight: bold; }
-    .info { color: #94a3b8; margin-top: 16px; line-height: 1.6; }
-    code { background: #334155; padding: 2px 6px; border-radius: 6px; }
+    /* --------- HERO --------- */
+    .hero {
+      position: relative; overflow: hidden;
+      background: radial-gradient(1200px 600px at 80% -10%, #1b4b8f 0%, transparent 60%),
+                  linear-gradient(135deg, var(--marca) 0%, var(--marca-2) 100%);
+      color: #fff;
+    }
+    .hero .contenedor { position: relative; z-index: 2;
+      display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center;
+      padding-top: 68px; padding-bottom: 88px; }
+    .hero .pastilla {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+      padding: 7px 14px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .hero .pastilla .dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80;
+      box-shadow: 0 0 0 4px rgba(74,222,128,.25); }
+    .hero h1 { font-size: 3.1rem; line-height: 1.05; margin: 0 0 18px; font-weight: 900; letter-spacing: -.03em; }
+    .hero h1 .destacado { color: var(--acento); }
+    .hero .lead { font-size: 1.18rem; color: #cdddf3; margin: 0 0 30px; max-width: 520px; }
+    .hero-botones { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-stats { display: flex; gap: 30px; margin-top: 40px; }
+    .hero-stats .n { font-size: 1.9rem; font-weight: 800; }
+    .hero-stats .l { color: #9fb8d6; font-size: .85rem; }
+
+    /* Tarjeta ilustrativa del hero */
+    .hero-card {
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16);
+      border-radius: var(--radio-lg); padding: 24px; backdrop-filter: blur(6px);
+      box-shadow: var(--sombra-lg);
+    }
+    .hero-card .fila { display: flex; align-items: center; gap: 14px; padding: 12px 0; }
+    .hero-card .fila + .fila { border-top: 1px dashed rgba(255,255,255,.14); }
+    .hero-card .ico { width: 40px; height: 40px; border-radius: 11px; background: rgba(255,255,255,.14);
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .hero-card .txt b { display: block; font-size: .98rem; }
+    .hero-card .txt span { color: #9fb8d6; font-size: .84rem; }
+    .hero-card .estado-ok { margin-left: auto; color: #4ade80; font-weight: 700; font-size: .85rem; }
+
+    /* --------- SERVICIOS --------- */
+    .servicios-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .serv-card {
+      background: var(--superficie); border: 1px solid var(--borde); border-radius: var(--radio);
+      padding: 28px 22px; box-shadow: var(--sombra); transition: transform .15s, box-shadow .15s;
+    }
+    .serv-card:hover { transform: translateY(-4px); box-shadow: var(--sombra-lg); }
+    .serv-card .ico {
+      width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px; color: #fff;
+    }
+    .serv-card:nth-child(1) .ico { background: linear-gradient(135deg,#1b6ef3,#123a6b); }
+    .serv-card:nth-child(2) .ico { background: linear-gradient(135deg,#ff6a00,#e05500); }
+    .serv-card:nth-child(3) .ico { background: linear-gradient(135deg,#16a34a,#0f7a37); }
+    .serv-card:nth-child(4) .ico { background: linear-gradient(135deg,#7c3aed,#5b21b6); }
+    .serv-card .ico svg { width: 26px; height: 26px; }
+    .serv-card h3 { font-size: 1.1rem; margin: 0 0 8px; }
+    .serv-card p { color: var(--tinta-2); font-size: .93rem; margin: 0; }
+
+    /* --------- UBICAR PEDIDO (rastreador integrado) --------- */
+    .tracker { background: linear-gradient(180deg, #eef3fb 0%, var(--fondo) 100%); }
+    .tracker-box {
+      max-width: 720px; margin: 0 auto;
+      background: var(--superficie); border-radius: var(--radio-lg);
+      box-shadow: var(--sombra-lg); overflow: hidden; border: 1px solid var(--borde);
+    }
+    .tracker-top { background: linear-gradient(135deg, var(--marca), var(--marca-2)); color: #fff; padding: 26px 28px; }
+    .tracker-top h3 { margin: 0 0 4px; font-size: 1.3rem; display: flex; align-items: center; gap: 10px; }
+    .tracker-top p { margin: 0; color: #bcd0ec; font-size: .95rem; }
+    .tracker-body { padding: 26px 28px 30px; }
+    .buscador { display: flex; gap: 10px; }
+    .buscador input {
+      flex: 1; padding: 16px 18px; font-size: 1.05rem; border-radius: var(--radio-sm);
+      border: 1.5px solid var(--borde); background: #fff; font-family: var(--fuente); color: var(--tinta);
+    }
+    .buscador input:focus { outline: none; border-color: var(--azul); box-shadow: 0 0 0 4px rgba(27,110,243,.12); }
+    .ayuda-codigos { font-size: .85rem; color: var(--tenue); margin: 12px 2px 0; }
+    .ayuda-codigos b { color: var(--tinta-2); }
+    .chip {
+      display: inline-block; background: var(--acento-suave); color: var(--acento);
+      border: 1px solid #ffd9bf; padding: 3px 10px; border-radius: 999px; font-weight: 700;
+      font-size: .82rem; cursor: pointer; margin: 0 4px;
+    }
+    .chip:hover { background: #ffe6d5; }
+
+    .aviso { margin-top: 18px; padding: 16px; border-radius: var(--radio-sm);
+      background: var(--alerta-bg); color: #b91c1c; font-weight: 500; display: none; }
+    .aviso.visible { display: block; }
+
+    .resultado { margin-top: 22px; }
+    .r-codigo { font-size: .82rem; color: var(--tenue); letter-spacing: 1px; font-weight: 600; }
+    .r-ruta { font-size: 1.4rem; font-weight: 800; margin: 4px 0 14px; letter-spacing: -.01em; }
+    .estado-actual { display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 18px; border-radius: 999px; background: #dbeafe; color: #1d4ed8;
+      font-weight: 700; font-size: 1rem; }
+    .estado-actual.fin { background: var(--ok-bg); color: #15803d; }
+
+    .mapa-titulo { font-weight: 700; margin: 22px 0 10px; display: flex; align-items: center; gap: 8px; }
+    #mapa { height: 280px; border-radius: var(--radio-sm); overflow: hidden; background: #e2e8f0; }
+    .sin-mapa { padding: 26px; text-align: center; color: var(--tenue); background: #f8fafc;
+      border-radius: var(--radio-sm); border: 1px dashed var(--borde); }
+    .vivo { font-size: .82rem; color: var(--ok); margin-top: 8px; font-weight: 600; }
+    .icono-camion { font-size: 26px; line-height: 1; text-align: center; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
+
+    .progreso { margin: 24px 0 4px; }
+    .paso { display: flex; gap: 14px; }
+    .linea { width: 22px; display: flex; flex-direction: column; align-items: center; }
+    .punto { width: 20px; height: 20px; border-radius: 50%; background: var(--borde); z-index: 1;
+      display: flex; align-items: center; justify-content: center; font-size: .68rem; color: var(--tenue); }
+    .conector { width: 2px; flex: 1; background: var(--borde); }
+    .paso.hecho .punto { background: var(--ok); color: #fff; }
+    .paso.hecho .conector { background: var(--ok); }
+    .paso.actual .punto { background: var(--azul); color: #fff; box-shadow: 0 0 0 4px rgba(27,110,243,.18); }
+    .texto { padding-bottom: 18px; }
+    .texto .nombre { font-weight: 600; }
+    .paso.pendiente .nombre { color: var(--tenue); font-weight: 500; }
+    .texto .fecha { font-size: .8rem; color: var(--tenue); }
+    .texto .nota { font-size: .86rem; color: var(--tinta-2); margin-top: 2px; font-style: italic; }
+
+    /* --------- CONTACTO --------- */
+    .contacto { background: var(--superficie); }
+    .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    .contacto-info h2 { font-size: 2rem; margin: 0 0 14px; letter-spacing: -.02em; }
+    .contacto-info p { color: var(--tinta-2); margin: 0 0 26px; font-size: 1.05rem; }
+    .contacto-item { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; }
+    .contacto-item .ico { width: 46px; height: 46px; border-radius: 12px; background: var(--acento-suave);
+      color: var(--acento); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contacto-item .ico svg { width: 22px; height: 22px; }
+    .contacto-item b { display: block; }
+    .contacto-item span { color: var(--tinta-2); font-size: .92rem; }
+    .cta-card {
+      background: linear-gradient(135deg, var(--marca), var(--marca-2)); color: #fff;
+      border-radius: var(--radio-lg); padding: 40px; box-shadow: var(--sombra-lg);
+    }
+    .cta-card h3 { font-size: 1.6rem; margin: 0 0 10px; }
+    .cta-card p { color: #bcd0ec; margin: 0 0 24px; }
+
+    @media (max-width: 900px) {
+      .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero .contenedor { grid-template-columns: 1fr; padding-top: 48px; padding-bottom: 60px; }
+      .hero-card { order: 2; }
+      .contacto-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero h1 { font-size: 2.2rem; }
+      .servicios-grid { grid-template-columns: 1fr; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .buscador { flex-direction: column; }
+      .seccion { padding: 52px 0; }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🚚 Trazabilidad Logistica</h1>
-    <p class="ok" id="estado">Conectando con el servidor...</p>
-    <p class="info">
-      Los cimientos estan listos. Elige una vista para continuar.
-    </p>
-    <div style="margin-top: 20px;">
-      <a href="/conductor.html" style="display:inline-block; margin:6px; padding:14px 22px; background:#16a34a;
-         color:white; border-radius:12px; text-decoration:none; font-weight:600;">
-        🚛 Vista del Conductor
+
+  <!-- ===================== BARRA SUPERIOR ===================== -->
+  <header class="topbar">
+    <div class="contenedor">
+      <a class="marca-logo" href="/">
+        <span class="marca-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </span>
+        <span class="marca-texto">
+          <span class="m1">Transporte</span>
+          <span class="m2">D <b>Todo</b></span>
+        </span>
       </a>
-      <a href="/cliente.html" style="display:inline-block; margin:6px; padding:14px 22px; background:#1d4ed8;
-         color:white; border-radius:12px; text-decoration:none; font-weight:600;">
-        📦 Seguimiento (Cliente)
-      </a>
-      <a href="/panel.html" style="display:inline-block; margin:6px; padding:14px 22px; background:#7c3aed;
-         color:white; border-radius:12px; text-decoration:none; font-weight:600;">
-        📊 Panel del Dueno
-      </a>
+      <nav class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#ubicar">Ubicar pedido</a>
+        <a href="#contacto">Contacto</a>
+        <a class="btn btn-acento btn-sm" href="#ubicar">📦 Rastrear envío</a>
+      </nav>
     </div>
-  </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="contenedor">
+      <div>
+        <span class="pastilla"><span class="dot"></span> Seguimiento en tiempo real</span>
+        <h1>Tu carga, entregada con <span class="destacado">seguimiento en vivo</span></h1>
+        <p class="lead">
+          Transportamos tu mercadería a todo el país y te dejamos ver dónde va tu envío,
+          minuto a minuto. Sin llamadas, sin incertidumbre.
+        </p>
+        <div class="hero-botones">
+          <a class="btn btn-acento" href="#ubicar">📦 Ubicar mi pedido</a>
+          <a class="btn btn-fantasma" href="#contacto">Solicitar cotización</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="n">100%</div><div class="l">Cobertura nacional</div></div>
+          <div><div class="n">24/7</div><div class="l">Seguimiento en línea</div></div>
+          <div><div class="n">En vivo</div><div class="l">Ubicación del camión</div></div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="fila">
+          <div class="ico">📍</div>
+          <div class="txt"><b>TRK-1001 · En ruta</b><span>San Salvador → Santa Ana</span></div>
+          <div class="estado-ok">🟢 En vivo</div>
+        </div>
+        <div class="fila">
+          <div class="ico">✅</div>
+          <div class="txt"><b>Carga confirmada</b><span>200 cajas · salida de bodega</span></div>
+        </div>
+        <div class="fila">
+          <div class="ico">🚚</div>
+          <div class="txt"><b>Camión en movimiento</b><span>Actualizado hace instantes</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS ===================== -->
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <div class="eyebrow">Qué hacemos</div>
+        <h2>Logística confiable, de punta a punta</h2>
+        <p>Movemos tu carga con la tecnología para que sepas siempre dónde está.</p>
+      </div>
+      <div class="servicios-grid">
+        <div class="serv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Transporte de carga</h3>
+          <p>Movemos tu mercadería con unidades adecuadas para cada tipo de carga.</p>
+        </div>
+        <div class="serv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <h3>Cobertura nacional</h3>
+          <p>Entregamos en todo el país, desde bodega central hasta el destino final.</p>
+        </div>
+        <div class="serv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3>Seguimiento en vivo</h3>
+          <p>Consulta el estado y la ubicación de tu envío en el mapa, en tiempo real.</p>
+        </div>
+        <div class="serv-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <h3>Entregas a tiempo</h3>
+          <p>Cada paso queda registrado y alertamos si un viaje se retrasa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UBICAR PEDIDO ===================== -->
+  <section class="seccion tracker" id="ubicar">
+    <div class="contenedor">
+      <div class="seccion-titulo">
+        <div class="eyebrow">Rastreo</div>
+        <h2>Ubicar pedido</h2>
+        <p>Ingresa tu código de seguimiento y mira dónde va tu envío ahora mismo.</p>
+      </div>
+
+      <div class="tracker-box">
+        <div class="tracker-top">
+          <h3>📦 Rastrea tu envío</h3>
+          <p>Escribe el código que te compartimos (por ejemplo, TRK-1001).</p>
+        </div>
+        <div class="tracker-body">
+          <div class="buscador">
+            <input id="codigo" placeholder="Ej: TRK-1001" autocomplete="off" />
+            <button class="btn btn-azul" id="btnBuscar">Buscar</button>
+          </div>
+          <div class="ayuda-codigos">
+            <b>¿Solo quieres probar?</b> Usa un código de ejemplo:
+            <span class="chip" data-cod="TRK-1001">TRK-1001</span>
+            <span class="chip" data-cod="TRK-1002">TRK-1002</span>
+            <span class="chip" data-cod="TRK-1003">TRK-1003</span>
+          </div>
+
+          <div class="aviso" id="aviso"></div>
+          <div class="resultado" id="resultado"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="seccion contacto" id="contacto">
+    <div class="contenedor contacto-grid">
+      <div class="contacto-info">
+        <h2>¿Necesitas mover tu carga?</h2>
+        <p>Cuéntanos qué necesitas transportar y te damos una cotización sin compromiso.</p>
+        <div class="contacto-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><b>Teléfono</b><span>+503 0000-0000</span></div>
+        </div>
+        <div class="contacto-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+          <div><b>Correo</b><span>contacto@transportedtodo.com</span></div>
+        </div>
+        <div class="contacto-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg></div>
+          <div><b>Cobertura</b><span>Todo el territorio nacional</span></div>
+        </div>
+      </div>
+      <div class="cta-card">
+        <h3>Ya tienes un envío con nosotros</h3>
+        <p>Consulta el estado y la ubicación de tu carga en segundos.</p>
+        <a class="btn btn-acento" href="#ubicar">📦 Ubicar mi pedido</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PIE ===================== -->
+  <footer class="footer">
+    <div class="contenedor">
+      <div class="cols">
+        <div>
+          <a class="marca-logo" href="/">
+            <span class="marca-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </span>
+            <span class="marca-texto">
+              <span class="m1">Transporte</span>
+              <span class="m2">D <b>Todo</b></span>
+            </span>
+          </a>
+          <p>Transporte de carga con seguimiento en tiempo real. Tu envío, siempre visible.</p>
+        </div>
+        <div>
+          <h4>Enlaces</h4>
+          <a href="#servicios">Servicios</a>
+          <a href="#ubicar">Ubicar pedido</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div>
+          <h4>Acceso del equipo</h4>
+          <a href="/conductor.html">🚛 Vista del conductor</a>
+          <a href="/panel.html">📊 Panel del dueño</a>
+        </div>
+      </div>
+      <div class="legal">
+        <span>© <span id="anio"></span> Transporte D Todo. Todos los derechos reservados.</span>
+        <span>Plataforma de trazabilidad logística</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== LÓGICA DEL RASTREADOR ===================== -->
   <script>
-    fetch('/api/salud')
-      .then(r => r.json())
-      .then(d => {
-        document.getElementById('estado').textContent =
-          '✅ ' + d.mensaje + ' — ' + d.viajes + ' viajes en la base de datos';
-      })
-      .catch(() => {
-        document.getElementById('estado').textContent = '❌ No se pudo conectar';
-      });
+    const inputCodigo = document.getElementById('codigo');
+    const btnBuscar   = document.getElementById('btnBuscar');
+    const aviso       = document.getElementById('aviso');
+    const resultado   = document.getElementById('resultado');
+    const anio        = document.getElementById('anio');
+    anio.textContent  = new Date().getFullYear();
+
+    let ESTADOS = [];
+    let codigoActual = null;
+    let refrescoTimer = null;
+    let map = null, marker = null;
+
+    function fmtFecha(s) {
+      const d = new Date(String(s).replace(' ', 'T'));
+      if (isNaN(d)) return s;
+      return d.toLocaleString('es', { dateStyle: 'medium', timeStyle: 'short' });
+    }
+
+    async function cargarEstados() {
+      try {
+        const r = await fetch('/api/estados');
+        ESTADOS = (await r.json()).estados;
+      } catch (e) { ESTADOS = []; }
+    }
+
+    function detenerRefresco() {
+      if (refrescoTimer) { clearInterval(refrescoTimer); refrescoTimer = null; }
+      if (map) { map.remove(); map = null; marker = null; }
+    }
+
+    async function buscar(codigo) {
+      codigo = (codigo || '').trim().toUpperCase();
+      if (!codigo) return;
+      aviso.classList.remove('visible');
+      resultado.innerHTML = '';
+      detenerRefresco();
+      codigoActual = codigo;
+      history.replaceState(null, '', '#ubicar');
+
+      try {
+        const r = await fetch('/api/viajes/' + encodeURIComponent(codigo));
+        if (r.status === 404) {
+          aviso.textContent = 'No encontramos ningún envío con el código "' + codigo + '". Revisa que esté bien escrito.';
+          aviso.classList.add('visible');
+          return;
+        }
+        const { viaje, eventos } = await r.json();
+        renderCompleto(viaje, eventos);
+        refrescoTimer = setInterval(refrescar, 6000);
+      } catch (e) {
+        aviso.textContent = 'No se pudo conectar con el servidor.';
+        aviso.classList.add('visible');
+      }
+    }
+
+    function lineaTiempo(viaje, eventos) {
+      const posActual = ESTADOS.indexOf(viaje.estado_actual);
+      const porEstado = {};
+      eventos.forEach(e => { porEstado[e.estado] = e; });
+      return ESTADOS.map((nombre, i) => {
+        const clase = i < posActual ? 'hecho' : i === posActual ? 'actual hecho' : 'pendiente';
+        const ev = porEstado[nombre];
+        const icono = i <= posActual ? '✓' : '';
+        const esUltimo = i === ESTADOS.length - 1;
+        return `
+          <div class="paso ${clase}">
+            <div class="linea">
+              <div class="punto">${icono}</div>
+              ${esUltimo ? '' : '<div class="conector"></div>'}
+            </div>
+            <div class="texto">
+              <div class="nombre">${nombre}</div>
+              ${ev ? `<div class="fecha">${fmtFecha(ev.creado_en)}</div>` : ''}
+              ${ev && ev.nota ? `<div class="nota">${ev.nota}</div>` : ''}
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function badgeHTML(viaje) {
+      const finalizado = ESTADOS.indexOf(viaje.estado_actual) === ESTADOS.length - 1;
+      return `<span class="estado-actual ${finalizado ? 'fin' : ''}">
+        ${finalizado ? '✅ ' : '🚚 '}${viaje.estado_actual}</span>`;
+    }
+
+    function renderCompleto(viaje, eventos) {
+      resultado.innerHTML = `
+        <div class="r-codigo">${viaje.codigo}</div>
+        <div class="r-ruta">${viaje.origen} → ${viaje.destino}</div>
+        <div id="badge">${badgeHTML(viaje)}</div>
+        <div class="mapa-titulo">📍 Ubicación del camión</div>
+        <div id="mapaWrap"></div>
+        <div class="progreso" id="progreso">${lineaTiempo(viaje, eventos)}</div>`;
+      actualizarMapa(viaje);
+    }
+
+    function actualizarMapa(viaje) {
+      const wrap = document.getElementById('mapaWrap');
+      if (!wrap) return;
+      const tieneUbic = typeof viaje.lat === 'number' && typeof viaje.lng === 'number';
+
+      if (!tieneUbic) {
+        if (map) { map.remove(); map = null; marker = null; }
+        wrap.innerHTML = '<div class="sin-mapa">Aún no hay ubicación compartida para este envío.</div>';
+        return;
+      }
+      if (typeof L === 'undefined') {
+        wrap.innerHTML = '<div class="sin-mapa">No se pudo cargar el mapa (revisa tu conexión a internet). ' +
+          'El seguimiento del envío sigue disponible abajo.</div>';
+        return;
+      }
+      const pos = [viaje.lat, viaje.lng];
+      if (!map) {
+        wrap.innerHTML = '<div id="mapa"></div>';
+        map = L.map('mapa').setView(pos, 11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap', maxZoom: 18,
+        }).addTo(map);
+        const icono = L.divIcon({ html: '🚚', className: 'icono-camion', iconSize: [30, 30], iconAnchor: [15, 15] });
+        marker = L.marker(pos, { icon: icono }).addTo(map);
+      } else {
+        marker.setLatLng(pos);
+        map.panTo(pos);
+      }
+      const cuando = viaje.ubicacion_en ? ' · actualizada ' + fmtFecha(viaje.ubicacion_en) : '';
+      let vivo = wrap.querySelector('.vivo');
+      if (!vivo) { vivo = document.createElement('div'); vivo.className = 'vivo'; wrap.appendChild(vivo); }
+      vivo.textContent = '🟢 En vivo' + cuando;
+    }
+
+    async function refrescar() {
+      if (!codigoActual) return;
+      try {
+        const r = await fetch('/api/viajes/' + encodeURIComponent(codigoActual));
+        if (!r.ok) return;
+        const { viaje, eventos } = await r.json();
+        const badge = document.getElementById('badge');
+        const prog  = document.getElementById('progreso');
+        if (badge) badge.innerHTML = badgeHTML(viaje);
+        if (prog)  prog.innerHTML  = lineaTiempo(viaje, eventos);
+        actualizarMapa(viaje);
+      } catch (e) { /* reintenta en el próximo ciclo */ }
+    }
+
+    btnBuscar.onclick = () => buscar(inputCodigo.value);
+    inputCodigo.addEventListener('keydown', e => { if (e.key === 'Enter') buscar(inputCodigo.value); });
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => { inputCodigo.value = chip.dataset.cod; buscar(chip.dataset.cod); });
+    });
+
+    (async () => {
+      await cargarEstados();
+      const params = new URLSearchParams(location.search);
+      const c = params.get('codigo');
+      if (c) { inputCodigo.value = c; buscar(c); }
+    })();
   </script>
 </body>
 </html>
