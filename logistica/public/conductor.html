@@ -32,9 +32,11 @@
     .paso.hecho { color: var(--ok); }
     .paso.actual { color: var(--azul); font-weight: 700; }
     .punto { width: 20px; height: 20px; border-radius: 50%; background: var(--borde); flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: .7rem; color: var(--tenue); }
-    .paso.hecho .punto { background: var(--ok); color: #fff; }
-    .paso.actual .punto { background: var(--azul); color: #fff; }
+      display: flex; align-items: center; justify-content: center; }
+    .punto svg { width: 11px; height: 11px; stroke: #fff; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .paso.hecho .punto { background: var(--ok); }
+    .paso.actual .punto { background: var(--azul); }
+    .paso.actual .punto::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
 
     .boton-grande {
       width: 100%; padding: 20px; font-size: 1.2rem; font-weight: 700; font-family: var(--fuente);
@@ -106,9 +108,10 @@
       const posActual = ESTADOS.indexOf(viaje.estado_actual);
       const siguiente = ESTADOS[posActual + 1];
 
+      const SVG_CHECK = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
       const pasos = ESTADOS.map((e, i) => {
         const clase = i < posActual ? 'hecho' : i === posActual ? 'actual' : '';
-        const icono = i < posActual ? '✓' : i === posActual ? '•' : '';
+        const icono = i < posActual ? SVG_CHECK : '';
         return `<div class="paso ${clase}"><span class="punto">${icono}</span> ${e}</div>`;
       }).join('');
 
@@ -121,7 +124,7 @@
             Registrar: ${siguiente}
           </button>`;
       } else {
-        accion = `<div class="completado">✅ Viaje finalizado</div>`;
+        accion = `<div class="completado"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg>Viaje finalizado</div>`;
       }
 
       detalle.innerHTML = `
@@ -133,7 +136,7 @@
           ${accion}
           <div class="aviso" id="aviso"></div>
           <div class="ubic">
-            <button class="boton-ubic" id="btnUbic">📍 Compartir mi ubicación</button>
+            <button class="boton-ubic" id="btnUbic">Compartir mi ubicación</button>
             <div class="ubic-estado" id="ubicEstado"></div>
           </div>
         </div>`;
@@ -169,7 +172,7 @@
         if (watchId !== null) {
           detenerUbicacion();
           btn.classList.remove('activo');
-          btn.textContent = '📍 Compartir mi ubicación';
+          btn.textContent = 'Compartir mi ubicación';
           estado.textContent = 'Ubicación detenida.';
           return;
         }
@@ -178,15 +181,15 @@
         watchId = navigator.geolocation.watchPosition(
           (pos) => enviarUbicacion(pos, estado),
           (err) => {
-            estado.textContent = '⚠️ No se pudo obtener ubicación: ' + err.message;
+            estado.textContent = 'No se pudo obtener ubicación: ' + err.message;
             detenerUbicacion();
             btn.classList.remove('activo');
-            btn.textContent = '📍 Compartir mi ubicación';
+            btn.textContent = 'Compartir mi ubicación';
           },
           { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
         );
         btn.classList.add('activo');
-        btn.textContent = '⏹ Detener ubicación';
+        btn.textContent = 'Detener ubicación';
       };
     }
 
@@ -199,9 +202,9 @@
           body: JSON.stringify({ lat, lng }),
         });
         const hora = new Date().toLocaleTimeString('es');
-        estado.textContent = '🟢 Compartiendo ubicación · última: ' + hora;
+        estado.innerHTML = '<span class="dot-vivo"></span>Compartiendo ubicación · última: ' + hora;
       } catch (e) {
-        estado.textContent = '⚠️ Sin conexión con el servidor.';
+        estado.textContent = 'Sin conexión con el servidor.';
       }
     }
 
@@ -219,11 +222,11 @@
         const data = await r.json();
         if (!r.ok) throw new Error(data.error || 'Error al guardar');
         aviso.className = 'aviso ok';
-        aviso.textContent = '✅ Evento registrado: ' + estado;
+        aviso.textContent = 'Evento registrado: ' + estado;
         setTimeout(() => mostrarViaje(id), 800);
       } catch (e) {
         aviso.className = 'aviso error';
-        aviso.textContent = '❌ ' + e.message;
+        aviso.textContent = e.message;
         btn.disabled = false; btn.textContent = 'Registrar: ' + estado;
       }
     }

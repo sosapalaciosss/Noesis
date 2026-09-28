@@ -133,7 +133,7 @@
           <td data-label="Conductor">${v.conductor}</td>
           <td data-label="Estado"><span class="pill estado ${v.finalizado ? 'fin' : ''}">${v.estado_actual}</span></td>
           <td data-label="Sin cambios">${v.finalizado ? '—' : tiempoTexto(v.minutos_inactivo)}</td>
-          <td data-label="Alerta">${v.alerta ? '<span class="badge-alerta">⚠️ Atascado</span>' : '<span class="ok-chip">✓ OK</span>'}</td>
+          <td data-label="Alerta">${v.alerta ? '<span class="badge-alerta">Atascado</span>' : '<span class="ok-chip">OK</span>'}</td>
         </tr>`).join('');
     }
 

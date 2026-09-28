@@ -16,7 +16,8 @@
     .tracker-box { background: var(--superficie); border-radius: var(--radio-lg);
       box-shadow: var(--sombra); overflow: hidden; border: 1px solid var(--borde); }
     .tracker-top { background: linear-gradient(135deg, var(--marca), var(--marca-2)); color: #fff; padding: 22px 24px; }
-    .tracker-top h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .tracker-top h3 { margin: 0 0 4px; font-size: 1.15rem; display: flex; align-items: center; gap: 9px; }
+    .tracker-top h3 svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .tracker-top p { margin: 0; color: #bcd0ec; font-size: .9rem; }
     .tracker-body { padding: 22px 24px 26px; }
 
@@ -34,24 +35,31 @@
     .r-ruta { font-size: 1.35rem; font-weight: 800; margin: 4px 0 14px; letter-spacing: -.01em; }
     .estado-actual { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px;
       border-radius: 999px; background: #dbeafe; color: #1d4ed8; font-weight: 700; font-size: 1rem; }
+    .estado-actual svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     .estado-actual.fin { background: var(--ok-bg); color: #15803d; }
 
-    .mapa-titulo { font-weight: 700; margin: 22px 0 10px; }
+    .mapa-titulo { font-weight: 700; margin: 22px 0 10px; display: flex; align-items: center; gap: 8px; }
+    .mapa-titulo svg { width: 18px; height: 18px; fill: none; stroke: var(--acento); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
     #mapa { height: 260px; border-radius: var(--radio-sm); overflow: hidden; background: #e2e8f0; }
     .sin-mapa { padding: 24px; text-align: center; color: var(--tenue); background: #f8fafc;
       border-radius: var(--radio-sm); border: 1px dashed var(--borde); }
-    .vivo { font-size: .82rem; color: var(--ok); margin-top: 8px; font-weight: 600; }
-    .icono-camion { font-size: 26px; line-height: 1; text-align: center; filter: drop-shadow(0 1px 2px rgba(0,0,0,.4)); }
+    .vivo { font-size: .82rem; color: var(--ok); margin-top: 8px; font-weight: 600; display: flex; align-items: center; }
+
+    .map-pin { width: 34px; height: 34px; border-radius: 50% 50% 50% 0; background: var(--azul);
+      transform: rotate(-45deg); display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,.4); border: 2px solid #fff; }
+    .map-pin svg { transform: rotate(45deg); width: 17px; height: 17px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .progreso { margin: 24px 0 4px; }
     .paso { display: flex; gap: 14px; }
     .linea { width: 22px; display: flex; flex-direction: column; align-items: center; }
     .punto { width: 20px; height: 20px; border-radius: 50%; background: var(--borde); z-index: 1;
-      display: flex; align-items: center; justify-content: center; font-size: .68rem; color: var(--tenue); }
+      display: flex; align-items: center; justify-content: center; }
+    .punto svg { width: 11px; height: 11px; stroke: #fff; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
     .conector { width: 2px; flex: 1; background: var(--borde); }
-    .paso.hecho .punto { background: var(--ok); color: #fff; }
+    .paso.hecho .punto { background: var(--ok); }
     .paso.hecho .conector { background: var(--ok); }
-    .paso.actual .punto { background: var(--azul); color: #fff; box-shadow: 0 0 0 4px rgba(27,110,243,.18); }
+    .paso.actual .punto { background: var(--azul); box-shadow: 0 0 0 4px rgba(27,110,243,.18); }
     .texto { padding-bottom: 18px; }
     .texto .nombre { font-weight: 600; }
     .paso.pendiente .nombre { color: var(--tenue); font-weight: 500; }
@@ -77,13 +85,16 @@
           <span class="m2">D <b>Todo</b></span>
         </span>
       </a>
-      <h1>📦 Seguimiento de tu envío</h1>
+      <h1>Seguimiento de tu envío</h1>
       <p class="sub">Ingresa tu código de seguimiento para ver el estado.</p>
     </div>
 
     <div class="tracker-box">
       <div class="tracker-top">
-        <h3>Rastrea tu envío</h3>
+        <h3>
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          Rastrea tu envío
+        </h3>
         <p>Escribe el código que te compartimos (por ejemplo, TRK-1001).</p>
       </div>
       <div class="tracker-body">
@@ -100,6 +111,9 @@
   </div>
 
   <script>
+    const SVG_TRUCK = '<svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>';
+    const SVG_CHECK = '<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
+
     const inputCodigo = document.getElementById('codigo');
     const btnBuscar = document.getElementById('btnBuscar');
     const aviso = document.getElementById('aviso');
@@ -157,7 +171,7 @@
       return ESTADOS.map((nombre, i) => {
         const clase = i < posActual ? 'hecho' : i === posActual ? 'actual hecho' : 'pendiente';
         const ev = porEstado[nombre];
-        const icono = i <= posActual ? '✓' : '';
+        const icono = i <= posActual ? SVG_CHECK : '';
         const esUltimo = i === ESTADOS.length - 1;
         return `
           <div class="paso ${clase}">
@@ -176,8 +190,8 @@
 
     function badgeHTML(viaje) {
       const finalizado = ESTADOS.indexOf(viaje.estado_actual) === ESTADOS.length - 1;
-      return `<span class="estado-actual ${finalizado ? 'fin' : ''}">
-        ${finalizado ? '✅ ' : '🚚 '}${viaje.estado_actual}</span>`;
+      const icono = finalizado ? SVG_CHECK : SVG_TRUCK;
+      return `<span class="estado-actual ${finalizado ? 'fin' : ''}">${icono}${viaje.estado_actual}</span>`;
     }
 
     function renderCompleto(viaje, eventos) {
@@ -185,7 +199,7 @@
         <div class="r-codigo">${viaje.codigo}</div>
         <div class="r-ruta">${viaje.origen} → ${viaje.destino}</div>
         <div id="badge">${badgeHTML(viaje)}</div>
-        <div class="mapa-titulo">📍 Ubicación del camión</div>
+        <div class="mapa-titulo"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Ubicación del camión</div>
         <div id="mapaWrap"></div>
         <div class="progreso" id="progreso">${lineaTiempo(viaje, eventos)}</div>`;
       actualizarMapa(viaje);
@@ -213,7 +227,8 @@
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '© OpenStreetMap', maxZoom: 18,
         }).addTo(map);
-        const icono = L.divIcon({ html: '🚚', className: 'icono-camion', iconSize: [30, 30], iconAnchor: [15, 15] });
+        const icono = L.divIcon({ html: '<div class="map-pin">' + SVG_TRUCK + '</div>',
+          className: 'pin-wrap', iconSize: [34, 34], iconAnchor: [17, 34] });
         marker = L.marker(pos, { icon: icono }).addTo(map);
       } else {
         marker.setLatLng(pos);
@@ -222,7 +237,7 @@
       const cuando = viaje.ubicacion_en ? ' · actualizada ' + fmtFecha(viaje.ubicacion_en) : '';
       let vivo = wrap.querySelector('.vivo');
       if (!vivo) { vivo = document.createElement('div'); vivo.className = 'vivo'; wrap.appendChild(vivo); }
-      vivo.textContent = '🟢 En vivo' + cuando;
+      vivo.innerHTML = '<span class="dot-vivo"></span>En vivo' + cuando;
     }
 
     async function refrescar() {
