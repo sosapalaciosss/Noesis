@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es-SV">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Distribuidora D Todo · Granja propia y abastecimiento B2B en El Salvador</title>
+<meta name="description" content="Huevos, pollo y gallina de granja propia, más harinas y aceites al por mayor. Abastecemos panaderías, pupuserías, restaurantes, hoteles y mayoristas en El Salvador. Cotiza por WhatsApp.">
+<meta name="theme-color" content="#0A0A0A">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="index, follow">
+<!-- DOMINIO: reemplaza https://TU-DOMINIO.com por tu dominio real (ver README.md) -->
+<link rel="canonical" href="https://TU-DOMINIO.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_SV">
+<meta property="og:site_name" content="Distribuidora D Todo">
+<meta property="og:title" content="Distribuidora D Todo · De nuestra granja directo a tu cocina">
+<meta property="og:description" content="Huevos, pollo y gallina de granja propia, más harinas y aceites al por mayor. Precio de productor para tu negocio.">
+<meta property="og:url" content="https://TU-DOMINIO.com/">
+<meta property="og:image" content="https://TU-DOMINIO.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Distribuidora D Todo · De nuestra granja directo a tu cocina">
+<meta name="twitter:description" content="Huevos, pollo y gallina de granja propia, más harinas y aceites al por mayor.">
+<meta name="twitter:image" content="https://TU-DOMINIO.com/og-image.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WholesaleStore",
+  "name": "Distribuidora D Todo",
+  "description": "Productores avícolas y distribuidores mayoristas de alimentos en El Salvador.",
+  "url": "https://TU-DOMINIO.com/",
+  "image": "https://TU-DOMINIO.com/og-image.jpg",
+  "telephone": "+50370274503",
+  "address": { "@type": "PostalAddress", "addressCountry": "SV" },
+  "areaServed": { "@type": "Country", "name": "El Salvador" },
+  "contactPoint": { "@type": "ContactPoint", "telephone": "+50370274503", "contactType": "sales", "availableLanguage": "Spanish" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth;background:#0A0A0A}
+body{margin:0;background:#0A0A0A;color:#F5F5F4;font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+img{max-width:100%;display:block}
+a{color:#F28500;text-decoration:none}
+a:hover{color:#FF9E2C}
+a,button,input{transition:color .2s,background .2s,border-color .2s,transform .2s}
+:focus-visible{outline:2px solid #F28500;outline-offset:3px}
+::selection{background:#F28500;color:#0A0A0A}
+[hidden]{display:none !important}
+section[id]{scroll-margin-top:96px}
+@keyframes dtTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dtPulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+
+/* Ticker */
+.dt-tick{display:flex;width:max-content;animation:dtTicker 40s linear infinite}
+.dt-tick-g{display:flex;align-items:center;flex-shrink:0}
+.dt-tick-t{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(22px,2.4vw,34px);text-transform:uppercase;color:#0A0A0A;white-space:nowrap;letter-spacing:.01em;padding:0 28px}
+.dt-tick-d{width:10px;height:10px;background:#0A0A0A;transform:rotate(45deg);flex-shrink:0}
+
+/* Selector de clientes */
+.dt-tab{display:flex;align-items:center;gap:18px;width:100%;padding:24px;border-radius:18px;cursor:pointer;font:inherit;color:inherit;text-align:left;transition:all .25s;border:1px solid #262626;background:#0F0F0F}
+.dt-tab.is-on{border-color:#F28500;background:linear-gradient(135deg,rgba(242,133,0,.12),#121212 60%)}
+.dt-tab:hover{border-color:#F28500}
+.dt-arrow{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;flex-shrink:0;transition:all .25s;background:transparent;color:#737373;border:1px solid #262626}
+.dt-tab.is-on .dt-arrow{background:#F28500;color:#0A0A0A;border-color:#F28500}
+.dt-chip{font-size:13px;font-weight:600;color:#F5F5F4;border:1px solid #3A3A3A;background:rgba(10,10,10,.6);padding:8px 12px;border-radius:999px}
+
+/* Cotizador */
+.dt-opt{display:flex;align-items:center;justify-content:center;gap:10px;padding:14px 12px;border-radius:12px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;transition:all .2s;border:1px solid #262626;background:#0A0A0A;color:#D4D4D4}
+.dt-opt--check{justify-content:flex-start}
+.dt-opt.is-on{border-color:#F28500;background:rgba(242,133,0,.12);color:#F28500}
+.dt-opt:hover{border-color:#F28500}
+.dt-box{display:flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:5px;flex-shrink:0;border:1px solid #404040;background:transparent}
+.dt-opt.is-on .dt-box{border-color:#F28500;background:#F28500}
+
+/* Responsive */
+@media (max-width:1079px){.dt-wide{display:none !important}}
+@media (max-width:420px){.dt-hide-xs{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dt-tick{animation-duration:120s}}
+
+/* Hover / focus */
+.h1:hover{color:#FFFFFF !important;background:#171717 !important}
+.h2:hover{background:#FF9E2C !important;color:#0A0A0A !important}
+.h3:hover{background:#FF9E2C !important;color:#0A0A0A !important;transform:translateY(-2px) !important}
+.h4:hover{border-color:#F28500 !important;color:#FFFFFF !important}
+.h5:hover{border-color:#F28500 !important}
+.h6:hover{border-color:#F28500 !important;transform:translateY(-4px) !important}
+.h7:hover{background:#F28500 !important;border-color:#F28500 !important;color:#0A0A0A !important}
+.f8:focus{border-color:#F28500 !important}
+.h9:hover{color:#F28500 !important}
+</style>
+</head>
+<body>
+<div style="background:#0A0A0A;min-height:100vh;overflow-x:hidden">
+
+<!-- NAVBAR -->
+<header style="position:fixed;top:16px;left:0;right:0;z-index:50;display:flex;justify-content:center;padding:0 16px">
+  <nav style="width:100%;max-width:1320px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:10px 10px 10px 20px;background:rgba(10,10,10,.72);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);border:1px solid #262626;border-radius:16px">
+    <a href="#top" aria-label="Distribuidora D Todo" style="display:flex;align-items:center;flex-shrink:0">
+      <svg width="132" height="46" viewBox="0 0 160 56" fill="none">
+        <text x="2" y="10" fill="#F28500" font-family="Plus Jakarta Sans, sans-serif" font-size="8.6" font-weight="700" letter-spacing="3.4">DISTRIBUIDORA</text>
+        <text x="0" y="39" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="31" font-weight="800" letter-spacing="-1">D Todo</text>
+        <path d="M6 45 C 40 56, 92 56, 124 42" stroke="#F28500" stroke-width="4.5" stroke-linecap="round"></path>
+        <path d="M113 39 L126 41.5 L119 52" stroke="#F28500" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+      </svg>
+    </a>
+    <div class="dt-wide" style="display:flex;align-items:center;gap:4px">
+        <a class="h1" href="#clientes" style="color:#D4D4D4;font-size:14px;font-weight:500;padding:10px 14px;border-radius:10px">Clientes</a>
+        <a class="h1" href="#productos" style="color:#D4D4D4;font-size:14px;font-weight:500;padding:10px 14px;border-radius:10px">Productos</a>
+        <a class="h1" href="#granja" style="color:#D4D4D4;font-size:14px;font-weight:500;padding:10px 14px;border-radius:10px">Granja propia</a>
+        <a class="h1" href="#cotizar" style="color:#D4D4D4;font-size:14px;font-weight:500;padding:10px 14px;border-radius:10px">Cotizador</a>
+      </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="dt-wide" style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#A3A3A3">
+          <span style="width:8px;height:8px;border-radius:50%;background:#22C55E;animation:dtPulse 1.8s infinite"></span>
+          Entregas activas
+        </div>
+      <a class="h2" href="https://wa.me/50370274503?text=Hola%20Distribuidora%20D%20Todo%2C%20quiero%20hacer%20un%20pedido." target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;background:#F28500;color:#0A0A0A;font-weight:700;font-size:14px;padding:12px 16px;border-radius:10px;white-space:nowrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+        <span class="dt-hide-xs">Pedidos:&nbsp;</span>+503 7027 4503
+      </a>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="top" data-section="Hero" style="position:relative;padding:clamp(140px,16vw,180px) clamp(20px,4vw,56px) clamp(64px,8vw,112px)">
+  <div style="position:absolute;top:-10%;right:-10%;width:900px;height:900px;background:radial-gradient(circle,rgba(242,133,0,.16) 0%,rgba(242,133,0,0) 62%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background-image:linear-gradient(#141414 1px,transparent 1px),linear-gradient(90deg,#141414 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000 0%,transparent 70%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:clamp(40px,5vw,72px);align-items:center">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:28px">
+      <div style="display:flex;align-items:center;gap:10px;border:1px solid #262626;background:#121212;border-radius:999px;padding:8px 14px 8px 8px;font-size:13px;font-weight:600;color:#E5E5E5">
+        <span style="background:#F28500;color:#0A0A0A;border-radius:999px;padding:4px 10px;font-size:11px;font-weight:700;letter-spacing:.08em">SV</span>
+        Productores Avícolas &amp; Abastecimiento B2B
+      </div>
+      <h1 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(54px,7vw,112px);line-height:.92;letter-spacing:-.01em;text-wrap:balance">De nuestra granja y bodega <span style="color:#F28500">directo a tu cocina.</span></h1>
+      <p style="margin:0;max-width:540px;font-size:clamp(16px,1.3vw,19px);line-height:1.6;color:#A3A3A3;text-wrap:pretty">Abastecemos panaderías, pupuserías, restaurantes, comedores y mayoristas en El Salvador. Huevos, pollo y gallina de nuestra propia granja, más harinas y aceites al por mayor. Un solo proveedor, precio de productor.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="h3" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20tengo%20un%20negocio%20y%20quiero%20cotizar%20precios%20especiales%20de%20distribuidor." target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#F28500;color:#0A0A0A;font-weight:700;font-size:16px;padding:18px 24px;border-radius:12px">
+          Cotizar por WhatsApp
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+        </a>
+        <a class="h4" href="#productos" style="display:flex;align-items:center;gap:10px;border:1px solid #262626;color:#F5F5F4;font-weight:600;font-size:16px;padding:18px 24px;border-radius:12px;background:#121212">Ver las 5 líneas</a>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:28px;padding-top:20px;border-top:1px solid #1F1F1F;width:100%;max-width:540px">
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#F5F5F4">Granja propia</span><span style="font-size:13px;color:#8A8A8A">Huevos · Pollo · Gallina</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Oswald',sans-serif;font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#F5F5F4">Bodega mayorista</span><span style="font-size:13px;color:#8A8A8A">Harinas · Aceites</span></div>
+      </div>
+    </div>
+
+    <div style="position:relative">
+      <div style="position:absolute;inset:10% 5%;background:#F28500;opacity:.18;filter:blur(90px);border-radius:50%"></div>
+      <div style="position:relative;display:grid;grid-template-columns:1.1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:clamp(460px,48vw,640px)">
+        <div style="grid-row:span 2;position:relative;border-radius:20px;overflow:hidden;border:1px solid #262626;background:#171717">
+          <img decoding="async" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&amp;q=80&amp;auto=format&amp;fit=crop" alt="Pan artesanal recién horneado" style="width:100%;height:100%;object-fit:cover;filter:brightness(.72) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.85) 100%)"></div>
+          <span style="position:absolute;left:16px;bottom:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4D4D4">Panificación</span>
+        </div>
+        <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid #262626;background:#171717">
+          <img decoding="async" src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Cocina profesional en acción" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.8) 100%)"></div>
+          <span style="position:absolute;left:16px;bottom:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4D4D4">Cocinas profesionales</span>
+        </div>
+        <div style="position:relative;border-radius:20px;overflow:hidden;border:1px solid #262626;background:#171717">
+          <img decoding="async" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Huevos frescos de granja" style="width:100%;height:100%;object-fit:cover;filter:brightness(.75) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,0) 40%,rgba(10,10,10,.8) 100%)"></div>
+          <span style="position:absolute;left:16px;bottom:16px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D4D4D4">Huevos de granja</span>
+        </div>
+      </div>
+      <div style="position:absolute;top:28px;left:-20px;display:flex;align-items:center;gap:14px;padding:14px 18px 14px 14px;background:rgba(18,18,18,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #262626;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.5)">
+        <span style="font-family:'Oswald',sans-serif;font-weight:700;font-size:30px;color:#F28500;line-height:1">100%</span>
+        <span style="font-size:13px;font-weight:600;line-height:1.3;color:#F5F5F4">Frescura de<br>granja propia</span>
+      </div>
+      <div style="position:absolute;bottom:32px;left:-20px;display:flex;align-items:center;gap:12px;padding:14px 18px;background:#F28500;color:#0A0A0A;border-radius:14px;box-shadow:0 20px 50px rgba(242,133,0,.25)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+        <span style="font-size:14px;font-weight:700;line-height:1.25">Precios especiales<br>a distribuidores</span>
+      </div>
+      <div style="position:absolute;top:50%;right:-16px;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;padding:16px 18px;background:rgba(18,18,18,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #262626;border-radius:14px;box-shadow:0 20px 50px rgba(0,0,0,.5)">
+        <span style="font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#A3A3A3">5 líneas esenciales</span>
+        <div style="display:flex;gap:6px">
+          <span style="width:22px;height:6px;border-radius:3px;background:#F28500"></span>
+          <span style="width:22px;height:6px;border-radius:3px;background:#F28500"></span>
+          <span style="width:22px;height:6px;border-radius:3px;background:#F28500"></span>
+          <span style="width:22px;height:6px;border-radius:3px;background:#F28500"></span>
+          <span style="width:22px;height:6px;border-radius:3px;background:#F28500"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div style="background:#F28500;border-top:1px solid #FF9E2C;border-bottom:1px solid #C96E00;overflow:hidden;padding:20px 0">
+  <div class="dt-tick"><div class="dt-tick-g"><span class="dt-tick-t">Huevos de granja propia</span><span class="dt-tick-d"></span><span class="dt-tick-t">Pollo y gallina fresca</span><span class="dt-tick-d"></span><span class="dt-tick-t">Harina de trigo El Panadero (50 lb)</span><span class="dt-tick-d"></span><span class="dt-tick-t">Harina de arroz Tío Pepe (25 lb)</span><span class="dt-tick-d"></span><span class="dt-tick-t">Aceites vegetales Día a Día</span><span class="dt-tick-d"></span><span class="dt-tick-t">Precios especiales a distribuidores</span><span class="dt-tick-d"></span></div><div class="dt-tick-g" aria-hidden="true"><span class="dt-tick-t">Huevos de granja propia</span><span class="dt-tick-d"></span><span class="dt-tick-t">Pollo y gallina fresca</span><span class="dt-tick-d"></span><span class="dt-tick-t">Harina de trigo El Panadero (50 lb)</span><span class="dt-tick-d"></span><span class="dt-tick-t">Harina de arroz Tío Pepe (25 lb)</span><span class="dt-tick-d"></span><span class="dt-tick-t">Aceites vegetales Día a Día</span><span class="dt-tick-d"></span><span class="dt-tick-t">Precios especiales a distribuidores</span><span class="dt-tick-d"></span></div></div>
+</div>
+
+<!-- WHO WE SERVE -->
+<section id="clientes" data-section="Clientes" style="position:relative;padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px)">
+  <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:760px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F28500">01 — A quién servimos</span>
+        <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,6vw,88px);line-height:.95;letter-spacing:-.01em">¿A quiénes abastecemos?</h2>
+      </div>
+      <p style="margin:0;max-width:400px;font-size:16px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Elige tu tipo de negocio y mira qué insumos te resolvemos en un solo pedido.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:20px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <button type="button" class="dt-tab is-on" data-seg="pan" aria-pressed="true">
+            <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F28500;min-width:28px">01</span>
+            <span style="display:flex;flex-direction:column;gap:6px;flex:1;text-align:left">
+              <span style="font-family:'Oswald',sans-serif;font-size:clamp(22px,2vw,28px);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:#F5F5F4">Panaderías y pupuserías</span>
+              <span style="font-size:14px;color:#A3A3A3;line-height:1.5">Harinas, huevos y aceites para producción diaria.</span>
+            </span>
+            <span class="dt-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+          </button>
+        <button type="button" class="dt-tab" data-seg="rest" aria-pressed="false">
+            <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F28500;min-width:28px">02</span>
+            <span style="display:flex;flex-direction:column;gap:6px;flex:1;text-align:left">
+              <span style="font-family:'Oswald',sans-serif;font-size:clamp(22px,2vw,28px);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:#F5F5F4">Restaurantes, pollerías y comedores</span>
+              <span style="font-size:14px;color:#A3A3A3;line-height:1.5">Pollo y gallina fresca, aceite para fritura profunda.</span>
+            </span>
+            <span class="dt-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+          </button>
+        <button type="button" class="dt-tab" data-seg="may" aria-pressed="false">
+            <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F28500;min-width:28px">03</span>
+            <span style="display:flex;flex-direction:column;gap:6px;flex:1;text-align:left">
+              <span style="font-family:'Oswald',sans-serif;font-size:clamp(22px,2vw,28px);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:#F5F5F4">Mayoristas y tiendas de abasto</span>
+              <span style="font-size:14px;color:#A3A3A3;line-height:1.5">Precios por volumen: quintales, fardos y cajas.</span>
+            </span>
+            <span class="dt-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+          </button>
+        <button type="button" class="dt-tab" data-seg="hot" aria-pressed="false">
+            <span style="font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F28500;min-width:28px">04</span>
+            <span style="display:flex;flex-direction:column;gap:6px;flex:1;text-align:left">
+              <span style="font-family:'Oswald',sans-serif;font-size:clamp(22px,2vw,28px);font-weight:600;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;color:#F5F5F4">Hoteles y catering</span>
+              <span style="font-size:14px;color:#A3A3A3;line-height:1.5">Abasto puntual, volumen garantizado, trazabilidad.</span>
+            </span>
+            <span class="dt-arrow" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+          </button>
+      </div>
+
+      <div id="seg-panel" aria-live="polite" style="position:relative;min-height:560px;border-radius:24px;overflow:hidden;border:1px solid #262626;background:#121212">
+        <img data-seg-img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1200&amp;q=80&amp;auto=format&amp;fit=crop" alt="Panaderías y pupuserías" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.6) contrast(1.25) saturate(.85) sepia(.2)">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.2) 0%,rgba(10,10,10,.55) 45%,rgba(10,10,10,.96) 100%)"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(242,133,0,.25),transparent 50%)"></div>
+        <div style="position:relative;height:100%;min-height:560px;display:flex;flex-direction:column;justify-content:flex-end;gap:20px;padding:clamp(24px,3vw,40px)">
+          <span style="align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:6px 10px;border-radius:6px" data-seg-tag>Panificación</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(32px,3.6vw,52px);line-height:.98;max-width:560px" data-seg-title>Todo lo que tu horno y tu comal necesitan.</h3>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#D4D4D4;max-width:520px;text-wrap:pretty" data-seg-desc>Harinas de trigo y arroz de alto rendimiento, huevos frescos de granja con yema firme y aceites para panificación. Un pedido cubre tu semana.</p>
+          <div data-seg-products style="display:flex;flex-wrap:wrap;gap:8px"><span class="dt-chip">Harina de Trigo El Panadero 50 lb</span><span class="dt-chip">Harina de Arroz Tío Pepe 25 lb</span><span class="dt-chip">Huevos de granja</span><span class="dt-chip">Aceite vegetal</span></div>
+          <a class="h2" data-seg-wa href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20tengo%20una%20panader%C3%ADa%2Fpupuser%C3%ADa%20y%20quiero%20cotizar%20harinas%2C%20huevos%20y%20aceite." target="_blank" rel="noopener" style="align-self:flex-start;display:flex;align-items:center;gap:10px;background:#F28500;color:#0A0A0A;font-weight:700;font-size:15px;padding:16px 20px;border-radius:12px;margin-top:4px">
+            <span data-seg-cta>Cotizar para mi panadería</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="productos" data-section="Productos" style="position:relative;padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px);background:#0D0D0D;border-top:1px solid #1A1A1A;border-bottom:1px solid #1A1A1A">
+  <div style="position:absolute;left:50%;top:30%;transform:translateX(-50%);width:1100px;height:600px;background:radial-gradient(ellipse,rgba(242,133,0,.09),transparent 65%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px">
+      <div style="display:flex;flex-direction:column;gap:18px;max-width:820px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F28500">02 — Precios especiales a distribuidores</span>
+        <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,6vw,88px);line-height:.95;letter-spacing:-.01em">5 líneas esenciales. <span style="color:#F28500">Un solo proveedor.</span></h2>
+      </div>
+      <p style="margin:0;max-width:380px;font-size:16px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Vendemos por formato mayorista. Cotiza el volumen que mueve tu negocio y te respondemos por WhatsApp.</p>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:20px">
+      <!-- 1 -->
+      <article class="h6" style="flex:1 1 440px;position:relative;display:flex;flex-direction:column;border:1px solid #262626;border-radius:24px;background:#121212;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="position:relative;height:300px;overflow:hidden;background:#171717">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1100&amp;q=80&amp;auto=format&amp;fit=crop" alt="Trigo" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,0) 30%,#121212 100%)"></div>
+          <div style="position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:320px;height:200px;background:#F28500;opacity:.35;filter:blur(70px);border-radius:50%"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F5F5F4;background:rgba(10,10,10,.6);border:1px solid #333;padding:6px 10px;border-radius:8px">01</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:7px 10px;border-radius:8px">Por quintal / saco</span>
+        </div>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A3A3A3">Harinas · Trigo</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,2.6vw,38px);line-height:1">Harina de Trigo Fortificada El Panadero <span style="color:#F28500">50 lb</span></h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Alto rendimiento para pan francés, pan dulce y repostería. Consistencia de amasado de un saco a otro.</p>
+          <a class="h7" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20quiero%20cotizar%20volumen%20de%20Harina%20de%20Trigo%20El%20Panadero%20(50%20lb)." target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid #333;color:#F5F5F4;font-weight:700;font-size:15px;padding:16px 18px;border-radius:12px">Cotizar volumen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="h6" style="flex:1 1 440px;position:relative;display:flex;flex-direction:column;border:1px solid #262626;border-radius:24px;background:#121212;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="position:relative;height:300px;overflow:hidden;background:#171717">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=1100&amp;q=80&amp;auto=format&amp;fit=crop" alt="Arroz" style="width:100%;height:100%;object-fit:cover;filter:brightness(.7) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,0) 30%,#121212 100%)"></div>
+          <div style="position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:320px;height:200px;background:#F28500;opacity:.35;filter:blur(70px);border-radius:50%"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F5F5F4;background:rgba(10,10,10,.6);border:1px solid #333;padding:6px 10px;border-radius:8px">02</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:7px 10px;border-radius:8px">Por saco / fardo</span>
+        </div>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A3A3A3">Harinas · Arroz</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(28px,2.6vw,38px);line-height:1">Harina de Arroz Tío Pepe <span style="color:#F28500">25 lb</span></h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">La base de las pupusas de arroz, atoles y panes. Molienda fina y textura uniforme para producción diaria.</p>
+          <a class="h7" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20quiero%20cotizar%20volumen%20de%20Harina%20de%20Arroz%20T%C3%ADo%20Pepe%20(25%20lb)." target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid #333;color:#F5F5F4;font-weight:700;font-size:15px;padding:16px 18px;border-radius:12px">Cotizar volumen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="h6" style="flex:1 1 320px;position:relative;display:flex;flex-direction:column;border:1px solid #262626;border-radius:24px;background:#121212;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="position:relative;height:240px;overflow:hidden;background:#171717">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Huevos de granja" style="width:100%;height:100%;object-fit:cover;filter:brightness(.72) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,0) 30%,#121212 100%)"></div>
+          <div style="position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:260px;height:180px;background:#F28500;opacity:.35;filter:blur(70px);border-radius:50%"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F5F5F4;background:rgba(10,10,10,.6);border:1px solid #333;padding:6px 10px;border-radius:8px">03</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:7px 10px;border-radius:8px">Por caja / cartón</span>
+        </div>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F28500">Granja propia</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,2.2vw,32px);line-height:1">Huevos de granja propia</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Recolección diaria, sin intermediarios, clasificados por tamaño. Máxima frescura y yema firme.</p>
+          <a class="h7" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20quiero%20cotizar%20volumen%20de%20Huevos%20de%20granja%20propia%20(por%20caja%20o%20cart%C3%B3n)." target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid #333;color:#F5F5F4;font-weight:700;font-size:15px;padding:16px 18px;border-radius:12px">Cotizar volumen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </article>
+      <!-- 4 -->
+      <article class="h6" style="flex:1 1 320px;position:relative;display:flex;flex-direction:column;border:1px solid #262626;border-radius:24px;background:#121212;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="position:relative;height:240px;overflow:hidden;background:#171717">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Pollo fresco" style="width:100%;height:100%;object-fit:cover;filter:brightness(.72) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,0) 30%,#121212 100%)"></div>
+          <div style="position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:260px;height:180px;background:#F28500;opacity:.35;filter:blur(70px);border-radius:50%"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F5F5F4;background:rgba(10,10,10,.6);border:1px solid #333;padding:6px 10px;border-radius:8px">04</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:7px 10px;border-radius:8px">Por libra / volumen</span>
+        </div>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F28500">Granja propia</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,2.2vw,32px);line-height:1">Pollo y gallina</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Crianza controlada y frescura garantizada, del galpón directo a tu negocio.</p>
+          <a class="h7" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20quiero%20cotizar%20volumen%20de%20Pollo%20y%20Gallina%20de%20granja%20propia." target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid #333;color:#F5F5F4;font-weight:700;font-size:15px;padding:16px 18px;border-radius:12px">Cotizar volumen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </article>
+      <!-- 5 -->
+      <article class="h6" style="flex:1 1 320px;position:relative;display:flex;flex-direction:column;border:1px solid #262626;border-radius:24px;background:#121212;overflow:hidden;transition:border-color .3s,transform .3s">
+        <div style="position:relative;height:240px;overflow:hidden;background:#171717">
+          <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=900&amp;q=80&amp;auto=format&amp;fit=crop" alt="Aceite vegetal" style="width:100%;height:100%;object-fit:cover;filter:brightness(.72) contrast(1.25) saturate(.9) sepia(.15)">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,0) 30%,#121212 100%)"></div>
+          <div style="position:absolute;left:50%;bottom:-80px;transform:translateX(-50%);width:260px;height:180px;background:#F28500;opacity:.35;filter:blur(70px);border-radius:50%"></div>
+          <span style="position:absolute;top:18px;left:18px;font-family:'Oswald',sans-serif;font-size:14px;font-weight:600;color:#F5F5F4;background:rgba(10,10,10,.6);border:1px solid #333;padding:6px 10px;border-radius:8px">05</span>
+          <span style="position:absolute;top:18px;right:18px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0A0A0A;background:#F28500;padding:7px 10px;border-radius:8px">Por bidón / caja</span>
+        </div>
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;gap:14px;padding:28px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#A3A3A3">Aceites comerciales</span>
+          <h3 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(26px,2.2vw,32px);line-height:1">Aceites vegetales Día a Día</h3>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#A3A3A3;text-wrap:pretty">Alto rendimiento para panificación y fritura industrial.</p>
+          <a class="h7" href="https://wa.me/50370274503?text=Hola%20D%20Todo%2C%20quiero%20cotizar%20volumen%20de%20Aceite%20vegetal%20D%C3%ADa%20a%20D%C3%ADa%20(por%20bid%C3%B3n%20o%20caja)." target="_blank" rel="noopener" style="margin-top:auto;display:flex;align-items:center;justify-content:space-between;border:1px solid #333;color:#F5F5F4;font-weight:700;font-size:15px;padding:16px 18px;border-radius:12px">Cotizar volumen <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GRANJA PROPIA -->
+<section id="granja" data-section="Granja propia" style="position:relative;padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px)">
+  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,500px),1fr));gap:clamp(40px,5vw,80px);align-items:stretch">
+    <div style="position:relative;min-height:620px;border-radius:24px;overflow:hidden;border:1px solid #262626;background:#171717">
+      <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=1200&amp;q=80&amp;auto=format&amp;fit=crop" alt="Gallinas en granja" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.65) contrast(1.25) saturate(.85) sepia(.2)">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.1) 0%,rgba(10,10,10,.9) 100%)"></div>
+      <div style="position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:12px;padding:clamp(24px,3vw,40px)">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F28500">Granja D Todo</span>
+        <span style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(30px,3vw,44px);line-height:1">Criamos, recolectamos y entregamos.</span>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:36px;justify-content:center">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F28500">03 — Nuestra diferencia</span>
+        <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(42px,5vw,76px);line-height:.95;letter-spacing:-.01em">El respaldo de tener granja propia.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.65;color:#A3A3A3;max-width:560px;text-wrap:pretty">La mayoría de proveedores compra a terceros y revende. Cada intermediario suma un margen y días de tránsito. Al comprarle directo al productor avícola, ese margen se queda en tu negocio y el producto llega más fresco a tu cocina.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:14px;padding:20px 22px;border:1px solid #262626;border-radius:16px;background:#121212">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Revendedor tradicional</span>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;font-weight:600;color:#A3A3A3">
+            <span style="padding:8px 12px;border:1px solid #2E2E2E;border-radius:8px">Granja</span><span style="color:#525252">→</span>
+            <span style="padding:8px 12px;border:1px solid #2E2E2E;border-radius:8px">Acopiador</span><span style="color:#525252">→</span>
+            <span style="padding:8px 12px;border:1px solid #2E2E2E;border-radius:8px">Revendedor</span><span style="color:#525252">→</span>
+            <span style="padding:8px 12px;border:1px solid #2E2E2E;border-radius:8px">Tu negocio</span>
+          </div>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:14px;padding:20px 22px;border:1px solid #F28500;border-radius:16px;background:linear-gradient(135deg,rgba(242,133,0,.14),rgba(242,133,0,.03))">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#F28500">Distribuidora D Todo</span>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:14px;font-weight:700;color:#0A0A0A">
+            <span style="padding:8px 12px;background:#F28500;border-radius:8px">Nuestra granja</span><span style="color:#F28500;font-size:18px">→</span>
+            <span style="padding:8px 12px;background:#F5F5F4;border-radius:8px">Tu negocio</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:#262626;border:1px solid #262626;border-radius:16px;overflow:hidden">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:22px;background:#0A0A0A"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;text-transform:uppercase">Menor costo</span><span style="font-size:14px;line-height:1.55;color:#A3A3A3">Precio de productor, sin márgenes de reventa.</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:22px;background:#0A0A0A"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;text-transform:uppercase">Más frescura</span><span style="font-size:14px;line-height:1.55;color:#A3A3A3">Huevos de recolección diaria y pollo del galpón a tu negocio.</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:22px;background:#0A0A0A"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;text-transform:uppercase">Abasto seguro</span><span style="font-size:14px;line-height:1.55;color:#A3A3A3">Controlamos la producción, no dependemos de terceros.</span></div>
+        <div style="display:flex;flex-direction:column;gap:8px;padding:22px;background:#0A0A0A"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;text-transform:uppercase">Trazabilidad</span><span style="font-size:14px;line-height:1.55;color:#A3A3A3">Sabes de dónde viene cada caja que recibes.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COTIZADOR -->
+<section id="cotizar" data-section="Cotizador" style="position:relative;padding:clamp(80px,10vw,140px) clamp(20px,4vw,56px);background:#0D0D0D;border-top:1px solid #1A1A1A">
+  <div style="position:absolute;right:0;top:20%;width:700px;height:700px;background:radial-gradient(circle,rgba(242,133,0,.12),transparent 62%);pointer-events:none"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,5vw,80px);align-items:start">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <span style="font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#F28500">04 — Cotizador rápido B2B</span>
+      <h2 style="margin:0;font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(44px,6vw,88px);line-height:.95;letter-spacing:-.01em">Arma tu pedido en 30 segundos.</h2>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#A3A3A3;max-width:480px;text-wrap:pretty">Selecciona tu negocio, los insumos y el volumen. Armamos el mensaje por ti y lo envías directo a nuestro WhatsApp de pedidos.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px;padding:20px 22px;border:1px dashed #333;border-radius:16px;max-width:480px">
+        <span style="font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8A8A8A">Vista previa del mensaje</span>
+        <span style="font-size:14px;line-height:1.65;color:#D4D4D4;white-space:pre-line" id="q-preview">Hola Distribuidora D Todo, quiero cotizar precios especiales.
+Negocio: Panadería
+Insumos: Huevos, Harinas
+Volumen estimado: 10 – 50 unidades por semana</span>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;flex-direction:column;gap:32px;padding:clamp(24px,3vw,40px);border:1px solid #262626;border-radius:24px;background:#121212;box-shadow:0 40px 80px rgba(0,0,0,.4)">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:700;color:#F5F5F4"><span style="color:#F28500;font-family:'Oswald',sans-serif;margin-right:8px">1</span>Tipo de negocio</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px">
+          <button type="button" class="dt-opt is-on" data-biz="Panadería" aria-pressed="true">Panadería</button>
+          <button type="button" class="dt-opt" data-biz="Restaurante" aria-pressed="false">Restaurante</button>
+          <button type="button" class="dt-opt" data-biz="Mayorista" aria-pressed="false">Mayorista</button>
+          <button type="button" class="dt-opt" data-biz="Otro" aria-pressed="false">Otro</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:700;color:#F5F5F4"><span style="color:#F28500;font-family:'Oswald',sans-serif;margin-right:8px">2</span>Insumos de interés <span style="font-weight:500;color:#8A8A8A">· puedes marcar varios</span></span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px">
+          <button type="button" class="dt-opt dt-opt--check is-on" data-item="Huevos" aria-pressed="true"><span class="dt-box" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Huevos</button>
+          <button type="button" class="dt-opt dt-opt--check" data-item="Pollo / Gallina" aria-pressed="false"><span class="dt-box" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Pollo / Gallina</button>
+          <button type="button" class="dt-opt dt-opt--check is-on" data-item="Harinas" aria-pressed="true"><span class="dt-box" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Harinas</button>
+          <button type="button" class="dt-opt dt-opt--check" data-item="Aceite" aria-pressed="false"><span class="dt-box" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Aceite</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <span style="font-size:13px;font-weight:700;color:#F5F5F4"><span style="color:#F28500;font-family:'Oswald',sans-serif;margin-right:8px">3</span>Volumen estimado <span style="font-weight:500;color:#8A8A8A">· sacos, cajas o bidones por semana</span></span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px">
+          <button type="button" class="dt-opt" data-vol="1 – 10" aria-pressed="false">1 – 10</button>
+          <button type="button" class="dt-opt is-on" data-vol="10 – 50" aria-pressed="true">10 – 50</button>
+          <button type="button" class="dt-opt" data-vol="50 – 200" aria-pressed="false">50 – 200</button>
+          <button type="button" class="dt-opt" data-vol="+200" aria-pressed="false">+200</button>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px">
+        <input class="f8" id="q-name" type="text" name="negocio" autocomplete="organization" aria-label="Nombre del negocio" placeholder="Nombre del negocio (opcional)" style="width:100%;background:#0A0A0A;border:1px solid #262626;border-radius:12px;padding:16px;color:#F5F5F4;font:inherit;font-size:14px;outline:none">
+        <input class="f8" id="q-zone" type="text" name="zona" autocomplete="address-level2" aria-label="Municipio o zona" placeholder="Municipio / zona (opcional)" style="width:100%;background:#0A0A0A;border:1px solid #262626;border-radius:12px;padding:16px;color:#F5F5F4;font:inherit;font-size:14px;outline:none">
+      </div>
+      <a class="h3" id="q-send" href="https://wa.me/50370274503?text=Hola%20Distribuidora%20D%20Todo%2C%20quiero%20cotizar%20precios%20especiales." target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:12px;background:#F28500;color:#0A0A0A;font-weight:800;font-size:17px;padding:20px 24px;border-radius:14px;box-shadow:0 12px 40px rgba(242,133,0,.25)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+        Enviar cotización por WhatsApp
+      </a>
+      <span id="q-warn" hidden style="margin-top:-18px;text-align:center;font-size:13px;color:#FF9E2C">Marca al menos un insumo para una cotización más precisa.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <a class="h2" href="https://wa.me/50370274503?text=Hola%20Distribuidora%20D%20Todo%2C%20quiero%20informaci%C3%B3n%20para%20abastecer%20mi%20negocio." target="_blank" rel="noopener" style="display:block;background:#F28500;color:#0A0A0A;padding:clamp(64px,9vw,120px) clamp(20px,4vw,56px)">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(24px,3vw,40px)">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase">
+        <span>Llama o escribe hoy</span>
+        <span>Pedidos · WhatsApp</span>
+      </div>
+      <span style="font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(56px,13vw,220px);line-height:.85;letter-spacing:-.02em">+503 7027 4503</span>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;border-top:2px solid #0A0A0A;padding-top:24px">
+        <span style="font-size:clamp(18px,1.8vw,24px);font-weight:700;max-width:620px;line-height:1.3">Abastece tu negocio con precio de productor.</span>
+        <span style="display:flex;align-items:center;gap:10px;background:#0A0A0A;color:#F5F5F4;font-weight:700;font-size:16px;padding:16px 22px;border-radius:12px">Escribir ahora <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F28500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></span>
+      </div>
+    </div>
+  </a>
+  <div style="background:#0A0A0A;padding:64px clamp(20px,4vw,56px) 40px">
+    <div style="max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:56px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px">
+        <div style="display:flex;flex-direction:column;gap:18px;grid-column:span 1">
+          <svg width="160" height="56" viewBox="0 0 160 56" fill="none">
+            <text x="2" y="10" fill="#F28500" font-family="Plus Jakarta Sans, sans-serif" font-size="8.6" font-weight="700" letter-spacing="3.4">DISTRIBUIDORA</text>
+            <text x="0" y="39" fill="#FFFFFF" font-family="Plus Jakarta Sans, sans-serif" font-size="31" font-weight="800" letter-spacing="-1">D Todo</text>
+            <path d="M6 45 C 40 56, 92 56, 124 42" stroke="#F28500" stroke-width="4.5" stroke-linecap="round"></path>
+            <path d="M113 39 L126 41.5 L119 52" stroke="#F28500" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <p style="margin:0;font-size:14px;line-height:1.6;color:#8A8A8A;max-width:280px">Productores avícolas y distribuidores mayoristas de alimentos en El Salvador.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5F5F4">Productos</span>
+          <a class="h9" href="#productos" style="font-size:14px;color:#A3A3A3">Harinas de trigo y arroz</a>
+          <a class="h9" href="#productos" style="font-size:14px;color:#A3A3A3">Huevos de granja propia</a>
+          <a class="h9" href="#productos" style="font-size:14px;color:#A3A3A3">Pollo y gallina</a>
+          <a class="h9" href="#productos" style="font-size:14px;color:#A3A3A3">Aceites comerciales</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5F5F4">Clientes</span>
+          <a class="h9" href="#clientes" style="font-size:14px;color:#A3A3A3">Panaderías y pupuserías</a>
+          <a class="h9" href="#clientes" style="font-size:14px;color:#A3A3A3">Restaurantes y comedores</a>
+          <a class="h9" href="#clientes" style="font-size:14px;color:#A3A3A3">Mayoristas y tiendas</a>
+          <a class="h9" href="#clientes" style="font-size:14px;color:#A3A3A3">Hoteles y catering</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5F5F4">Contacto</span>
+          <a class="h9" href="https://wa.me/50370274503" target="_blank" rel="noopener" style="font-size:14px;color:#A3A3A3">WhatsApp: +503 7027 4503</a>
+          <a class="h9" href="tel:+50370274503" style="font-size:14px;color:#A3A3A3">Llamar: +503 7027 4503</a>
+          <span style="font-size:14px;color:#A3A3A3">El Salvador</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;padding-top:24px;border-top:1px solid #1F1F1F;font-size:13px;color:#737373">
+        <span>© <span id="year">2026</span> Distribuidora D Todo. Todos los derechos reservados.</span>
+        <a class="h9" href="#top" style="color:#737373">Volver arriba ↑</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
