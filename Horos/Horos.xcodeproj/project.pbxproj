@@ -1,0 +1,1216 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01820FCC7DCFE587A8866805 /* FamilyActivitySelectionCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */; };
+		06AEC780F79D25DA3BB15AE0 /* FamilyActivitySelectionCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */; };
+		072540126B70CDCFA5725D68 /* ViewModelSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A24ED56391261AFCCB25D75 /* ViewModelSupport.swift */; };
+		085D05FA797181D971096518 /* SharedStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */; };
+		091CE3FEE60FF4A5AEFFBD65 /* HorosPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */; };
+		1064C23E0F52580688824D4C /* BlockingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */; };
+		1318111BAD5CBAA0E6920B36 /* DeviceActivityReportExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F4A3260E7D9A1F88BA098D14 /* DeviceActivityReportExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		162015F4ADCA4ED1983D2A30 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F45A449FAE2C48CF37E4 /* Weekday.swift */; };
+		172AA41851E099247C40CC86 /* DarwinNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */; };
+		19F88796406AD4E1551BE5E7 /* ProfileRuntimeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */; };
+		1BABD294FADFA7A38342C30C /* HorosConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */; };
+		1FC9C3918FDD23602723C251 /* DarwinNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */; };
+		20D71283BC68B0BFE7653E9E /* QuickSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D282A38036F82730059E0F /* QuickSessionState.swift */; };
+		20F6E9DEAA9CCDCC0C6BCEAA /* HorosShieldConfigurationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2D2AC1286F3863205DC0DC /* HorosShieldConfigurationDataSource.swift */; };
+		28F1614515B2EE5A96241020 /* SharedStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */; };
+		2B0AF510E134FFA82DD3553D /* HorosConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */; };
+		2B5BA64EB9A40F89FEAD1AA0 /* HorosPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */; };
+		2DC24DD5EF9CFAEAA1608F19 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2904028389CBD84F7B06E53 /* MainTabView.swift */; };
+		2EB6A9B256E5C780A4698470 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F45A449FAE2C48CF37E4 /* Weekday.swift */; };
+		2FEFBE4B6DBA801E97BCECE6 /* BlockingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */; };
+		316CD2969FF86F02CB36374B /* HorosPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */; };
+		3267364E2E9EBECA3490E302 /* ShieldEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */; };
+		3589DA1C47500E95CB177FC1 /* ShieldEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */; };
+		360273FA1390B41A5E07FD80 /* AttemptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E2855345712E5C5CC25E8 /* AttemptTracker.swift */; };
+		36EB3DBE5A90FC9F9468EA6F /* AttemptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E2855345712E5C5CC25E8 /* AttemptTracker.swift */; };
+		39D7041FD6BF064724B4CB48 /* ProfileRuntimeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */; };
+		3B81A6663AAFA9548180BC1D /* TotalActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0E5541D49EF549771DF1D2 /* TotalActivityView.swift */; };
+		3E9201BE447613B6114D8892 /* DarwinNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */; };
+		3F17FB9F1658157EB6A8ABC4 /* QuickSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D282A38036F82730059E0F /* QuickSessionState.swift */; };
+		424EB9E6E0450EB6DC627DF2 /* ScreenTimeReportCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F9D59B611C3F5B5990C63 /* ScreenTimeReportCard.swift */; };
+		4B0500BE97FF91611AD88FD6 /* HorosTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116EE25C8AABAEB666D90AB5 /* HorosTheme.swift */; };
+		4B2C39D64FBAB7265D3A3012 /* ShieldEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */; };
+		4CC63AC3ABD71D43C5E87BBF /* ProfileRuntimeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */; };
+		4DC1441E334FB77A43CC3E74 /* SelectionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342631785002BB93A8D7768C /* SelectionSummaryView.swift */; };
+		4E8C6EEF58F4F35F41F34373 /* TotalActivityReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA887938F2AB06823DDA8CF /* TotalActivityReport.swift */; };
+		53E6031AD723B112F3D41199 /* FamilyActivitySelectionCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */; };
+		53F03151F149FE23EB15C095 /* QuickSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D282A38036F82730059E0F /* QuickSessionState.swift */; };
+		592D72AFB9199763F3AFEF5B /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 99773912800A04FD4E8B6CF0 /* ShieldConfigurationExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5B77390AEBB502E9E558EAC3 /* SharedStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */; };
+		60C2584BCF605C16EA5A40B8 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AC7781B05AD86EE678DBAA9A /* DeviceActivityMonitorExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		614AECB8A071193A3812BD64 /* AttemptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E2855345712E5C5CC25E8 /* AttemptTracker.swift */; };
+		626E5342DB82A3A281A33D39 /* SovereigntyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A379E686512256B9326FE1E0 /* SovereigntyView.swift */; };
+		627A0FD93526157586731036 /* AttemptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E2855345712E5C5CC25E8 /* AttemptTracker.swift */; };
+		636F7DC3EB4CB0B017642C51 /* SchedulesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08D7151540E9AC1AEC5FCE4 /* SchedulesViewModel.swift */; };
+		63BFA55DD031BDD691ECF807 /* HorosConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */; };
+		679D264AF37C69A3B7878EC9 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAB32D112A449D7C57580A2 /* AuthorizationViewModel.swift */; };
+		71387966536EB9F3434B7747 /* BlockingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */; };
+		714FAC994294ED9DA59C7598 /* ThresholdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353E810A0D043C6A1D0BE908 /* ThresholdView.swift */; };
+		724493F95FAA17B3BD6D4F1A /* DarwinNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */; };
+		7ED6D7C9D9E63C3B2F377EBA /* WeekdayPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5A3C32DEAD5992D4D64721C /* WeekdayPicker.swift */; };
+		7F25016CC490B421E4E9FBC5 /* QuickSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D282A38036F82730059E0F /* QuickSessionState.swift */; };
+		7F58156211AE6954E5277154 /* ProfileRuntimeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */; };
+		806C70096C74D5D0BB680E63 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A409F99527C6E3FF3BFB9807 /* AnalyticsViewModel.swift */; };
+		835DBB5AC5C6FDB8881C7D57 /* RitualsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7752B5395C4A6A6AA39EDD2 /* RitualsView.swift */; };
+		862A9F017966329330DFD6F2 /* HorosConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */; };
+		88E5165CF529C590BEDDB203 /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280A6E9BA502FCB16D75204 /* ReportContext.swift */; };
+		8935CB69D8287B5228B36A5B /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280A6E9BA502FCB16D75204 /* ReportContext.swift */; };
+		8C21205F5F1E694BD5CB37CC /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F90DC56BE2F4612A58478B6 /* RootView.swift */; };
+		8DA6F65A0D12F52A592C7DA5 /* TokenHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB158A6B78736404F5E98324 /* TokenHasher.swift */; };
+		8EB06659A0C7F1D9B7158249 /* QuickSessionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D282A38036F82730059E0F /* QuickSessionState.swift */; };
+		910F6455240FB84AB6A1C487 /* HorosPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */; };
+		994F3A469949A373C81C3F16 /* HorosReportExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F24DD2B575467F45D81EBF0 /* HorosReportExtension.swift */; };
+		9BD9536E45F671053F4CA709 /* ActivityReportSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B24FA360E60C1EA453A8C7 /* ActivityReportSummary.swift */; };
+		A4BEE050CC26A60F8F5BFB96 /* TokenHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB158A6B78736404F5E98324 /* TokenHasher.swift */; };
+		A8A747FADEC208347BB50F89 /* SharedStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */; };
+		AAB6F7BA61BD1BFBD5970E0C /* AttemptInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FBADBD205793119790970E7 /* AttemptInterceptor.swift */; };
+		AF0A2A2C459741F19B1EA883 /* TokenHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB158A6B78736404F5E98324 /* TokenHasher.swift */; };
+		B290EBA509E4B4ED9D83E8D0 /* AttemptsBarChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = D33C6BB016DCF4DD29731AA5 /* AttemptsBarChart.swift */; };
+		B4E7753A34986CFFA00988AE /* TokenHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB158A6B78736404F5E98324 /* TokenHasher.swift */; };
+		B6BC9F235ADF5909891B97C4 /* ShieldScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7802311E16E31E800974C0 /* ShieldScreenBuilder.swift */; };
+		B7B901CC1D2DCE074EA1BF02 /* QuickSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EAE1246495735765DDE0FF1 /* QuickSessionViewModel.swift */; };
+		BA8CB21BD5E8B796B4D5E701 /* HorosDeviceActivityMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8016D5BBD1E3A7EEE82C0A2 /* HorosDeviceActivityMonitor.swift */; };
+		BD4134EB4A8BBE7EB316E3B8 /* ShieldEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */; };
+		C06805527121DDEECCD55F3C /* ShieldActionExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D74BEFD8BED335A7B812C77E /* ShieldActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C1A7DA58ADD0B394006F4EF6 /* FamilyActivitySelectionCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */; };
+		C24BBB3025F42A1B455B72B6 /* FamilyActivitySelectionCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */; };
+		CAA423E837750EE0913D17E2 /* HorosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C06CAC44B7123D9E0EFC33E /* HorosApp.swift */; };
+		CC88B38B7B49A0D01C97B7DE /* TokenHasher.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB158A6B78736404F5E98324 /* TokenHasher.swift */; };
+		CD39608F5FA42341FC150C41 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F45A449FAE2C48CF37E4 /* Weekday.swift */; };
+		CE841D2CDB96E656ADFAA4C5 /* SharedStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */; };
+		D745D5B64A762B659D1D8A2B /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280A6E9BA502FCB16D75204 /* ReportContext.swift */; };
+		DACF4826F262DED0357FA0D7 /* ProfileRuntimeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */; };
+		DE08247D39C33A2BDE522D3C /* ShieldEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */; };
+		DFC8E763534D81CFC1AAC030 /* HorosShieldActionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37CDD179265342CE08206E5 /* HorosShieldActionDelegate.swift */; };
+		E2AE170DD39259536D567A9C /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F45A449FAE2C48CF37E4 /* Weekday.swift */; };
+		E3566C3E1288A2E34C28DB7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0368272F57BE4172493F16 /* Assets.xcassets */; };
+		E65DCB6A488E561CB63672F3 /* HorosConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */; };
+		E7AC0F8157C9DB294997AAAE /* BlockingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */; };
+		E7F17E08D41782416C392CB9 /* ProfileEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8AB78B34455C0D3390D240 /* ProfileEditorView.swift */; };
+		E9392F89916ECEAA0023E969 /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280A6E9BA502FCB16D75204 /* ReportContext.swift */; };
+		EC1859850A2D547A48103B91 /* Weekday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D53F45A449FAE2C48CF37E4 /* Weekday.swift */; };
+		EE61B9D7889359FF3DE7E80F /* AttemptTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004E2855345712E5C5CC25E8 /* AttemptTracker.swift */; };
+		EEAE5F139790246CDEB94429 /* DarwinNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */; };
+		F0931DA3695DF39B08EEB1CF /* BlockingProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */; };
+		F5266785C865784117802BCA /* HorosPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */; };
+		F5639E2E0667B6C17EB3EEBD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AE445B928EA50F4CFC00A8 /* OnboardingView.swift */; };
+		FB6E2B1CD68100CF6079E10D /* ReportContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0280A6E9BA502FCB16D75204 /* ReportContext.swift */; };
+		FD6BD5DC0AC32404E0077501 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26566C3386DC40E42A3E7B20 /* AppState.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0F0308DF5085AFBC3C11A9E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBF0F60ADFBE34CC47848FEF;
+			remoteInfo = ShieldActionExtension;
+		};
+		1A1AE715F6E62B24C18430D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B01E25AD7CDD7C812678AB4;
+			remoteInfo = DeviceActivityReportExtension;
+		};
+		84A8F9D87D6B16E2BA520A71 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7DCC4D3646724CBF1C680168;
+			remoteInfo = ShieldConfigurationExtension;
+		};
+		CAD28A9DD572656BC8F84D4E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D498D65209A57CF724F1A13;
+			remoteInfo = DeviceActivityMonitorExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		179CC56EEB3ACB7CE5C7FA3A /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				60C2584BCF605C16EA5A40B8 /* DeviceActivityMonitorExtension.appex in Embed Foundation Extensions */,
+				592D72AFB9199763F3AFEF5B /* ShieldConfigurationExtension.appex in Embed Foundation Extensions */,
+				C06805527121DDEECCD55F3C /* ShieldActionExtension.appex in Embed Foundation Extensions */,
+				1318111BAD5CBAA0E6920B36 /* DeviceActivityReportExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		004E2855345712E5C5CC25E8 /* AttemptTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptTracker.swift; sourceTree = "<group>"; };
+		0280A6E9BA502FCB16D75204 /* ReportContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportContext.swift; sourceTree = "<group>"; };
+		0A24ED56391261AFCCB25D75 /* ViewModelSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelSupport.swift; sourceTree = "<group>"; };
+		0D8F9D59B611C3F5B5990C63 /* ScreenTimeReportCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTimeReportCard.swift; sourceTree = "<group>"; };
+		0F24DD2B575467F45D81EBF0 /* HorosReportExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosReportExtension.swift; sourceTree = "<group>"; };
+		116EE25C8AABAEB666D90AB5 /* HorosTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosTheme.swift; sourceTree = "<group>"; };
+		1693FA1AEB71BCB94E5E7DD5 /* DeviceActivityMonitorExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityMonitorExtension.entitlements; sourceTree = "<group>"; };
+		1BAB32D112A449D7C57580A2 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
+		1DA887938F2AB06823DDA8CF /* TotalActivityReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityReport.swift; sourceTree = "<group>"; };
+		20B24FA360E60C1EA453A8C7 /* ActivityReportSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityReportSummary.swift; sourceTree = "<group>"; };
+		226FBB85ADF57113AE5471C9 /* ShieldActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldActionExtension.entitlements; sourceTree = "<group>"; };
+		26566C3386DC40E42A3E7B20 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		342631785002BB93A8D7768C /* SelectionSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionSummaryView.swift; sourceTree = "<group>"; };
+		353E810A0D043C6A1D0BE908 /* ThresholdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdView.swift; sourceTree = "<group>"; };
+		3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedStorageManager.swift; sourceTree = "<group>"; };
+		3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosPalette.swift; sourceTree = "<group>"; };
+		3F6A04C277986E13EE5A295B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FamilyActivitySelectionCoder.swift; sourceTree = "<group>"; };
+		470CD7CB75796A740520E5A5 /* bootstrap.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = bootstrap.sh; sourceTree = "<group>"; };
+		4FBADBD205793119790970E7 /* AttemptInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptInterceptor.swift; sourceTree = "<group>"; };
+		56FC287245B508A3843EDA2C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5EAE1246495735765DDE0FF1 /* QuickSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSessionViewModel.swift; sourceTree = "<group>"; };
+		5F90DC56BE2F4612A58478B6 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		656FD43435FCFC9288C7A2BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		66CF3BC14234BAFD25B1DFB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67A454385372561975E5CC68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67C55DC9D4D0933CAFE7B99F /* generate_xcodeproj.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = generate_xcodeproj.py; sourceTree = "<group>"; };
+		692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingProfile.swift; sourceTree = "<group>"; };
+		6C06CAC44B7123D9E0EFC33E /* HorosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosApp.swift; sourceTree = "<group>"; };
+		6D0E5541D49EF549771DF1D2 /* TotalActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalActivityView.swift; sourceTree = "<group>"; };
+		6D53F45A449FAE2C48CF37E4 /* Weekday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weekday.swift; sourceTree = "<group>"; };
+		7B8AB78B34455C0D3390D240 /* ProfileEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditorView.swift; sourceTree = "<group>"; };
+		81D282A38036F82730059E0F /* QuickSessionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickSessionState.swift; sourceTree = "<group>"; };
+		8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosConstants.swift; sourceTree = "<group>"; };
+		8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldEngine.swift; sourceTree = "<group>"; };
+		958B68360D049FC163D3CC2A /* ShieldConfigurationExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShieldConfigurationExtension.entitlements; sourceTree = "<group>"; };
+		99773912800A04FD4E8B6CF0 /* ShieldConfigurationExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfigurationExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1AE445B928EA50F4CFC00A8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		A379E686512256B9326FE1E0 /* SovereigntyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SovereigntyView.swift; sourceTree = "<group>"; };
+		A409F99527C6E3FF3BFB9807 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
+		AA488599213BCE158F3E0BA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC7781B05AD86EE678DBAA9A /* DeviceActivityMonitorExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityMonitorExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2904028389CBD84F7B06E53 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		BBBE50D57ACA84E5CCC56AB2 /* DeviceActivityReportExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeviceActivityReportExtension.entitlements; sourceTree = "<group>"; };
+		C08D7151540E9AC1AEC5FCE4 /* SchedulesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulesViewModel.swift; sourceTree = "<group>"; };
+		C0F01290FEE0218B2880D878 /* project.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = project.yml; sourceTree = "<group>"; };
+		C5A3C32DEAD5992D4D64721C /* WeekdayPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayPicker.swift; sourceTree = "<group>"; };
+		D33C6BB016DCF4DD29731AA5 /* AttemptsBarChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttemptsBarChart.swift; sourceTree = "<group>"; };
+		D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarwinNotifier.swift; sourceTree = "<group>"; };
+		D74BEFD8BED335A7B812C77E /* ShieldActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7752B5395C4A6A6AA39EDD2 /* RitualsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RitualsView.swift; sourceTree = "<group>"; };
+		DD7802311E16E31E800974C0 /* ShieldScreenBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldScreenBuilder.swift; sourceTree = "<group>"; };
+		E37CDD179265342CE08206E5 /* HorosShieldActionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosShieldActionDelegate.swift; sourceTree = "<group>"; };
+		EA0368272F57BE4172493F16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EA1778F1C4E0002BD6E39451 /* Horos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Horos.entitlements; sourceTree = "<group>"; };
+		EB158A6B78736404F5E98324 /* TokenHasher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenHasher.swift; sourceTree = "<group>"; };
+		EB89C866D1735105F0CFD006 /* Horos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Horos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A3260E7D9A1F88BA098D14 /* DeviceActivityReportExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeviceActivityReportExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRuntimeState.swift; sourceTree = "<group>"; };
+		F8016D5BBD1E3A7EEE82C0A2 /* HorosDeviceActivityMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosDeviceActivityMonitor.swift; sourceTree = "<group>"; };
+		FF2D2AC1286F3863205DC0DC /* HorosShieldConfigurationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorosShieldConfigurationDataSource.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B190806171C116D2560011B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC36E62347CB1F4A6AB702EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D659C000DAA430457CD99928 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD70603D808682D7F7D8213B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDFDEBE91C50972EB59DDE78 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		017FBC24138A50C301ED556F /* SharedCore */ = {
+			isa = PBXGroup;
+			children = (
+				F058D392566038769E8EE961 /* Models */,
+				ABC4855EAB93F5743B40D021 /* Services */,
+				BE586B67D5AE115612FED172 /* Storage */,
+				F9BF0D520E596C3AD9D57DA6 /* Theme */,
+				647D7508F7CF6F1BFC7123B4 /* Utilities */,
+			);
+			path = SharedCore;
+			sourceTree = "<group>";
+		};
+		075DCFCE5DF57FD53B47CAD0 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A1AE445B928EA50F4CFC00A8 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		1EDCB0E9F1C50E7BAFC5DE5E /* ShieldActionExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4FBADBD205793119790970E7 /* AttemptInterceptor.swift */,
+				E37CDD179265342CE08206E5 /* HorosShieldActionDelegate.swift */,
+				67A454385372561975E5CC68 /* Info.plist */,
+				226FBB85ADF57113AE5471C9 /* ShieldActionExtension.entitlements */,
+			);
+			path = ShieldActionExtension;
+			sourceTree = "<group>";
+		};
+		31A5E41A9BD04E385DB196E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB89C866D1735105F0CFD006 /* Horos.app */,
+				AC7781B05AD86EE678DBAA9A /* DeviceActivityMonitorExtension.appex */,
+				99773912800A04FD4E8B6CF0 /* ShieldConfigurationExtension.appex */,
+				D74BEFD8BED335A7B812C77E /* ShieldActionExtension.appex */,
+				F4A3260E7D9A1F88BA098D14 /* DeviceActivityReportExtension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		417EFCF0D6DE8B7199632D89 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA0368272F57BE4172493F16 /* Assets.xcassets */,
+				EA1778F1C4E0002BD6E39451 /* Horos.entitlements */,
+				656FD43435FCFC9288C7A2BD /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		56BB97B7ECF664C03224C53F /* App */ = {
+			isa = PBXGroup;
+			children = (
+				26566C3386DC40E42A3E7B20 /* AppState.swift */,
+				6C06CAC44B7123D9E0EFC33E /* HorosApp.swift */,
+				B2904028389CBD84F7B06E53 /* MainTabView.swift */,
+				5F90DC56BE2F4612A58478B6 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		61D0940FE5DC307BB2E5F735 /* Rituals */ = {
+			isa = PBXGroup;
+			children = (
+				7B8AB78B34455C0D3390D240 /* ProfileEditorView.swift */,
+				D7752B5395C4A6A6AA39EDD2 /* RitualsView.swift */,
+			);
+			path = Rituals;
+			sourceTree = "<group>";
+		};
+		647D7508F7CF6F1BFC7123B4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D5B3B7A5FD08B614D440127A /* DarwinNotifier.swift */,
+				412A11F90F585C5B3412D161 /* FamilyActivitySelectionCoder.swift */,
+				0280A6E9BA502FCB16D75204 /* ReportContext.swift */,
+				EB158A6B78736404F5E98324 /* TokenHasher.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		64FA35B116E9B3F4604A7F8B = {
+			isa = PBXGroup;
+			children = (
+				FE03ABEDE3B3D7FBD9857B2E /* Horos */,
+				017FBC24138A50C301ED556F /* SharedCore */,
+				EFCFF041A78D9A0139DF99D5 /* DeviceActivityMonitorExtension */,
+				890F788B1254ADF8306CEF4A /* ShieldConfigurationExtension */,
+				1EDCB0E9F1C50E7BAFC5DE5E /* ShieldActionExtension */,
+				7CD80E3217348D7B12E79F65 /* DeviceActivityReportExtension */,
+				87B010AD78E5FB6D8E0E6905 /* Scripts */,
+				C0F01290FEE0218B2880D878 /* project.yml */,
+				56FC287245B508A3843EDA2C /* README.md */,
+				31A5E41A9BD04E385DB196E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7CD80E3217348D7B12E79F65 /* DeviceActivityReportExtension */ = {
+			isa = PBXGroup;
+			children = (
+				20B24FA360E60C1EA453A8C7 /* ActivityReportSummary.swift */,
+				BBBE50D57ACA84E5CCC56AB2 /* DeviceActivityReportExtension.entitlements */,
+				0F24DD2B575467F45D81EBF0 /* HorosReportExtension.swift */,
+				66CF3BC14234BAFD25B1DFB5 /* Info.plist */,
+				1DA887938F2AB06823DDA8CF /* TotalActivityReport.swift */,
+				6D0E5541D49EF549771DF1D2 /* TotalActivityView.swift */,
+			);
+			path = DeviceActivityReportExtension;
+			sourceTree = "<group>";
+		};
+		87B010AD78E5FB6D8E0E6905 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				470CD7CB75796A740520E5A5 /* bootstrap.sh */,
+				67C55DC9D4D0933CAFE7B99F /* generate_xcodeproj.py */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		890F788B1254ADF8306CEF4A /* ShieldConfigurationExtension */ = {
+			isa = PBXGroup;
+			children = (
+				FF2D2AC1286F3863205DC0DC /* HorosShieldConfigurationDataSource.swift */,
+				AA488599213BCE158F3E0BA2 /* Info.plist */,
+				958B68360D049FC163D3CC2A /* ShieldConfigurationExtension.entitlements */,
+				DD7802311E16E31E800974C0 /* ShieldScreenBuilder.swift */,
+			);
+			path = ShieldConfigurationExtension;
+			sourceTree = "<group>";
+		};
+		8B06974B7F7D4949E588966E /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				116EE25C8AABAEB666D90AB5 /* HorosTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		931D3C7B7A7B4082A16CB543 /* Threshold */ = {
+			isa = PBXGroup;
+			children = (
+				353E810A0D043C6A1D0BE908 /* ThresholdView.swift */,
+			);
+			path = Threshold;
+			sourceTree = "<group>";
+		};
+		A44011F052A8C46F127EC848 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7B42E774D211357BCD7082E /* Components */,
+				075DCFCE5DF57FD53B47CAD0 /* Onboarding */,
+				61D0940FE5DC307BB2E5F735 /* Rituals */,
+				CCC9D48390F63BB9DA46D03A /* Sovereignty */,
+				931D3C7B7A7B4082A16CB543 /* Threshold */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7B42E774D211357BCD7082E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				342631785002BB93A8D7768C /* SelectionSummaryView.swift */,
+				C5A3C32DEAD5992D4D64721C /* WeekdayPicker.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		ABC4855EAB93F5743B40D021 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8AD61BBAE47B8E081710DD3C /* ShieldEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BE586B67D5AE115612FED172 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				3BA64F8A45371D5799D4A264 /* SharedStorageManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		CCC9D48390F63BB9DA46D03A /* Sovereignty */ = {
+			isa = PBXGroup;
+			children = (
+				D33C6BB016DCF4DD29731AA5 /* AttemptsBarChart.swift */,
+				0D8F9D59B611C3F5B5990C63 /* ScreenTimeReportCard.swift */,
+				A379E686512256B9326FE1E0 /* SovereigntyView.swift */,
+			);
+			path = Sovereignty;
+			sourceTree = "<group>";
+		};
+		E74010B5D3E5FC27691543FB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A409F99527C6E3FF3BFB9807 /* AnalyticsViewModel.swift */,
+				1BAB32D112A449D7C57580A2 /* AuthorizationViewModel.swift */,
+				5EAE1246495735765DDE0FF1 /* QuickSessionViewModel.swift */,
+				C08D7151540E9AC1AEC5FCE4 /* SchedulesViewModel.swift */,
+				0A24ED56391261AFCCB25D75 /* ViewModelSupport.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		EFCFF041A78D9A0139DF99D5 /* DeviceActivityMonitorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				1693FA1AEB71BCB94E5E7DD5 /* DeviceActivityMonitorExtension.entitlements */,
+				F8016D5BBD1E3A7EEE82C0A2 /* HorosDeviceActivityMonitor.swift */,
+				3F6A04C277986E13EE5A295B /* Info.plist */,
+			);
+			path = DeviceActivityMonitorExtension;
+			sourceTree = "<group>";
+		};
+		F058D392566038769E8EE961 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				004E2855345712E5C5CC25E8 /* AttemptTracker.swift */,
+				692EFB196B3B2F2BB46B9ED2 /* BlockingProfile.swift */,
+				8721EC01189F6A9B0D96AC62 /* HorosConstants.swift */,
+				F775B32D60AD07D4A47F26B1 /* ProfileRuntimeState.swift */,
+				81D282A38036F82730059E0F /* QuickSessionState.swift */,
+				6D53F45A449FAE2C48CF37E4 /* Weekday.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F9BF0D520E596C3AD9D57DA6 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				3CCA66A03F41A88FD3BE2BE9 /* HorosPalette.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		FE03ABEDE3B3D7FBD9857B2E /* Horos */ = {
+			isa = PBXGroup;
+			children = (
+				56BB97B7ECF664C03224C53F /* App */,
+				417EFCF0D6DE8B7199632D89 /* Resources */,
+				8B06974B7F7D4949E588966E /* Theme */,
+				E74010B5D3E5FC27691543FB /* ViewModels */,
+				A44011F052A8C46F127EC848 /* Views */,
+			);
+			path = Horos;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1B01E25AD7CDD7C812678AB4 /* DeviceActivityReportExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2ACCC90A05CFAAC3437C8840 /* Build configuration list for PBXNativeTarget "DeviceActivityReportExtension" */;
+			buildPhases = (
+				0897A875D125A9FEF30837CE /* Sources */,
+				B190806171C116D2560011B0 /* Frameworks */,
+				00EE3A9C15F1120C8FF9592C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceActivityReportExtension;
+			productName = DeviceActivityReportExtension;
+			productReference = F4A3260E7D9A1F88BA098D14 /* DeviceActivityReportExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		2D498D65209A57CF724F1A13 /* DeviceActivityMonitorExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1CC7716EF52674464F3DBB1 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */;
+			buildPhases = (
+				A9BE9E83963FC61FDE82BF22 /* Sources */,
+				FDFDEBE91C50972EB59DDE78 /* Frameworks */,
+				6053AC57E3828F8CAC82DEC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DeviceActivityMonitorExtension;
+			productName = DeviceActivityMonitorExtension;
+			productReference = AC7781B05AD86EE678DBAA9A /* DeviceActivityMonitorExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		55A27E52BB608E832129485E /* Horos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 97ED02B19D804F0BCC5C36A6 /* Build configuration list for PBXNativeTarget "Horos" */;
+			buildPhases = (
+				B320EAA8B2A0EFE07253F17B /* Sources */,
+				D659C000DAA430457CD99928 /* Frameworks */,
+				76AE32A3D0C086FCC0A75828 /* Resources */,
+				179CC56EEB3ACB7CE5C7FA3A /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B0F7BE212E08F327489A15A /* PBXTargetDependency */,
+				0CF7D6A5260F0DE2D0782922 /* PBXTargetDependency */,
+				A74AC012591EBB10DFE1431E /* PBXTargetDependency */,
+				4A17A2114E96A1E6AD33D9D3 /* PBXTargetDependency */,
+			);
+			name = Horos;
+			productName = Horos;
+			productReference = EB89C866D1735105F0CFD006 /* Horos.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7DCC4D3646724CBF1C680168 /* ShieldConfigurationExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E512FA7D4CCFB126300B1AE6 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */;
+			buildPhases = (
+				CE7CCCC46B7BE1CA4F9EECBE /* Sources */,
+				DD70603D808682D7F7D8213B /* Frameworks */,
+				E959A6B3A2C2ABB09CE57E74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShieldConfigurationExtension;
+			productName = ShieldConfigurationExtension;
+			productReference = 99773912800A04FD4E8B6CF0 /* ShieldConfigurationExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		EBF0F60ADFBE34CC47848FEF /* ShieldActionExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 09935812B4A2D45E1DBCDB2D /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */;
+			buildPhases = (
+				B2F309EC9F49F0B22E742B55 /* Sources */,
+				BC36E62347CB1F4A6AB702EE /* Frameworks */,
+				BC57041D69B1F8A0963EC44A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShieldActionExtension;
+			productName = ShieldActionExtension;
+			productReference = D74BEFD8BED335A7B812C77E /* ShieldActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98F54143AB4E86B28C3AFEE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					55A27E52BB608E832129485E = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					2D498D65209A57CF724F1A13 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					7DCC4D3646724CBF1C680168 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					EBF0F60ADFBE34CC47848FEF = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					1B01E25AD7CDD7C812678AB4 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = F086F31674BEA44957E3CCA5 /* Build configuration list for PBXProject "Horos" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64FA35B116E9B3F4604A7F8B;
+			productRefGroup = 31A5E41A9BD04E385DB196E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				55A27E52BB608E832129485E /* Horos */,
+				2D498D65209A57CF724F1A13 /* DeviceActivityMonitorExtension */,
+				7DCC4D3646724CBF1C680168 /* ShieldConfigurationExtension */,
+				EBF0F60ADFBE34CC47848FEF /* ShieldActionExtension */,
+				1B01E25AD7CDD7C812678AB4 /* DeviceActivityReportExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00EE3A9C15F1120C8FF9592C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6053AC57E3828F8CAC82DEC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76AE32A3D0C086FCC0A75828 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3566C3E1288A2E34C28DB7C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BC57041D69B1F8A0963EC44A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E959A6B3A2C2ABB09CE57E74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0897A875D125A9FEF30837CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BD9536E45F671053F4CA709 /* ActivityReportSummary.swift in Sources */,
+				994F3A469949A373C81C3F16 /* HorosReportExtension.swift in Sources */,
+				4E8C6EEF58F4F35F41F34373 /* TotalActivityReport.swift in Sources */,
+				3B81A6663AAFA9548180BC1D /* TotalActivityView.swift in Sources */,
+				360273FA1390B41A5E07FD80 /* AttemptTracker.swift in Sources */,
+				2FEFBE4B6DBA801E97BCECE6 /* BlockingProfile.swift in Sources */,
+				E65DCB6A488E561CB63672F3 /* HorosConstants.swift in Sources */,
+				19F88796406AD4E1551BE5E7 /* ProfileRuntimeState.swift in Sources */,
+				3F17FB9F1658157EB6A8ABC4 /* QuickSessionState.swift in Sources */,
+				E2AE170DD39259536D567A9C /* Weekday.swift in Sources */,
+				BD4134EB4A8BBE7EB316E3B8 /* ShieldEngine.swift in Sources */,
+				A8A747FADEC208347BB50F89 /* SharedStorageManager.swift in Sources */,
+				316CD2969FF86F02CB36374B /* HorosPalette.swift in Sources */,
+				1FC9C3918FDD23602723C251 /* DarwinNotifier.swift in Sources */,
+				06AEC780F79D25DA3BB15AE0 /* FamilyActivitySelectionCoder.swift in Sources */,
+				88E5165CF529C590BEDDB203 /* ReportContext.swift in Sources */,
+				A4BEE050CC26A60F8F5BFB96 /* TokenHasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BE9E83963FC61FDE82BF22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA8CB21BD5E8B796B4D5E701 /* HorosDeviceActivityMonitor.swift in Sources */,
+				614AECB8A071193A3812BD64 /* AttemptTracker.swift in Sources */,
+				E7AC0F8157C9DB294997AAAE /* BlockingProfile.swift in Sources */,
+				1BABD294FADFA7A38342C30C /* HorosConstants.swift in Sources */,
+				39D7041FD6BF064724B4CB48 /* ProfileRuntimeState.swift in Sources */,
+				53F03151F149FE23EB15C095 /* QuickSessionState.swift in Sources */,
+				CD39608F5FA42341FC150C41 /* Weekday.swift in Sources */,
+				4B2C39D64FBAB7265D3A3012 /* ShieldEngine.swift in Sources */,
+				5B77390AEBB502E9E558EAC3 /* SharedStorageManager.swift in Sources */,
+				F5266785C865784117802BCA /* HorosPalette.swift in Sources */,
+				724493F95FAA17B3BD6D4F1A /* DarwinNotifier.swift in Sources */,
+				C1A7DA58ADD0B394006F4EF6 /* FamilyActivitySelectionCoder.swift in Sources */,
+				FB6E2B1CD68100CF6079E10D /* ReportContext.swift in Sources */,
+				AF0A2A2C459741F19B1EA883 /* TokenHasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B2F309EC9F49F0B22E742B55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAB6F7BA61BD1BFBD5970E0C /* AttemptInterceptor.swift in Sources */,
+				DFC8E763534D81CFC1AAC030 /* HorosShieldActionDelegate.swift in Sources */,
+				627A0FD93526157586731036 /* AttemptTracker.swift in Sources */,
+				71387966536EB9F3434B7747 /* BlockingProfile.swift in Sources */,
+				862A9F017966329330DFD6F2 /* HorosConstants.swift in Sources */,
+				7F58156211AE6954E5277154 /* ProfileRuntimeState.swift in Sources */,
+				8EB06659A0C7F1D9B7158249 /* QuickSessionState.swift in Sources */,
+				EC1859850A2D547A48103B91 /* Weekday.swift in Sources */,
+				DE08247D39C33A2BDE522D3C /* ShieldEngine.swift in Sources */,
+				28F1614515B2EE5A96241020 /* SharedStorageManager.swift in Sources */,
+				910F6455240FB84AB6A1C487 /* HorosPalette.swift in Sources */,
+				172AA41851E099247C40CC86 /* DarwinNotifier.swift in Sources */,
+				53E6031AD723B112F3D41199 /* FamilyActivitySelectionCoder.swift in Sources */,
+				E9392F89916ECEAA0023E969 /* ReportContext.swift in Sources */,
+				CC88B38B7B49A0D01C97B7DE /* TokenHasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B320EAA8B2A0EFE07253F17B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD6BD5DC0AC32404E0077501 /* AppState.swift in Sources */,
+				CAA423E837750EE0913D17E2 /* HorosApp.swift in Sources */,
+				2DC24DD5EF9CFAEAA1608F19 /* MainTabView.swift in Sources */,
+				8C21205F5F1E694BD5CB37CC /* RootView.swift in Sources */,
+				4B0500BE97FF91611AD88FD6 /* HorosTheme.swift in Sources */,
+				806C70096C74D5D0BB680E63 /* AnalyticsViewModel.swift in Sources */,
+				679D264AF37C69A3B7878EC9 /* AuthorizationViewModel.swift in Sources */,
+				B7B901CC1D2DCE074EA1BF02 /* QuickSessionViewModel.swift in Sources */,
+				636F7DC3EB4CB0B017642C51 /* SchedulesViewModel.swift in Sources */,
+				072540126B70CDCFA5725D68 /* ViewModelSupport.swift in Sources */,
+				4DC1441E334FB77A43CC3E74 /* SelectionSummaryView.swift in Sources */,
+				7ED6D7C9D9E63C3B2F377EBA /* WeekdayPicker.swift in Sources */,
+				F5639E2E0667B6C17EB3EEBD /* OnboardingView.swift in Sources */,
+				E7F17E08D41782416C392CB9 /* ProfileEditorView.swift in Sources */,
+				835DBB5AC5C6FDB8881C7D57 /* RitualsView.swift in Sources */,
+				B290EBA509E4B4ED9D83E8D0 /* AttemptsBarChart.swift in Sources */,
+				424EB9E6E0450EB6DC627DF2 /* ScreenTimeReportCard.swift in Sources */,
+				626E5342DB82A3A281A33D39 /* SovereigntyView.swift in Sources */,
+				714FAC994294ED9DA59C7598 /* ThresholdView.swift in Sources */,
+				EE61B9D7889359FF3DE7E80F /* AttemptTracker.swift in Sources */,
+				F0931DA3695DF39B08EEB1CF /* BlockingProfile.swift in Sources */,
+				2B0AF510E134FFA82DD3553D /* HorosConstants.swift in Sources */,
+				DACF4826F262DED0357FA0D7 /* ProfileRuntimeState.swift in Sources */,
+				20D71283BC68B0BFE7653E9E /* QuickSessionState.swift in Sources */,
+				162015F4ADCA4ED1983D2A30 /* Weekday.swift in Sources */,
+				3267364E2E9EBECA3490E302 /* ShieldEngine.swift in Sources */,
+				085D05FA797181D971096518 /* SharedStorageManager.swift in Sources */,
+				091CE3FEE60FF4A5AEFFBD65 /* HorosPalette.swift in Sources */,
+				3E9201BE447613B6114D8892 /* DarwinNotifier.swift in Sources */,
+				C24BBB3025F42A1B455B72B6 /* FamilyActivitySelectionCoder.swift in Sources */,
+				8935CB69D8287B5228B36A5B /* ReportContext.swift in Sources */,
+				B4E7753A34986CFFA00988AE /* TokenHasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE7CCCC46B7BE1CA4F9EECBE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F6E9DEAA9CCDCC0C6BCEAA /* HorosShieldConfigurationDataSource.swift in Sources */,
+				B6BC9F235ADF5909891B97C4 /* ShieldScreenBuilder.swift in Sources */,
+				36EB3DBE5A90FC9F9468EA6F /* AttemptTracker.swift in Sources */,
+				1064C23E0F52580688824D4C /* BlockingProfile.swift in Sources */,
+				63BFA55DD031BDD691ECF807 /* HorosConstants.swift in Sources */,
+				4CC63AC3ABD71D43C5E87BBF /* ProfileRuntimeState.swift in Sources */,
+				7F25016CC490B421E4E9FBC5 /* QuickSessionState.swift in Sources */,
+				2EB6A9B256E5C780A4698470 /* Weekday.swift in Sources */,
+				3589DA1C47500E95CB177FC1 /* ShieldEngine.swift in Sources */,
+				CE841D2CDB96E656ADFAA4C5 /* SharedStorageManager.swift in Sources */,
+				2B5BA64EB9A40F89FEAD1AA0 /* HorosPalette.swift in Sources */,
+				EEAE5F139790246CDEB94429 /* DarwinNotifier.swift in Sources */,
+				01820FCC7DCFE587A8866805 /* FamilyActivitySelectionCoder.swift in Sources */,
+				D745D5B64A762B659D1D8A2B /* ReportContext.swift in Sources */,
+				8DA6F65A0D12F52A592C7DA5 /* TokenHasher.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0CF7D6A5260F0DE2D0782922 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7DCC4D3646724CBF1C680168 /* ShieldConfigurationExtension */;
+			targetProxy = 84A8F9D87D6B16E2BA520A71 /* PBXContainerItemProxy */;
+		};
+		2B0F7BE212E08F327489A15A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D498D65209A57CF724F1A13 /* DeviceActivityMonitorExtension */;
+			targetProxy = CAD28A9DD572656BC8F84D4E /* PBXContainerItemProxy */;
+		};
+		4A17A2114E96A1E6AD33D9D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1B01E25AD7CDD7C812678AB4 /* DeviceActivityReportExtension */;
+			targetProxy = 1A1AE715F6E62B24C18430D4 /* PBXContainerItemProxy */;
+		};
+		A74AC012591EBB10DFE1431E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBF0F60ADFBE34CC47848FEF /* ShieldActionExtension */;
+			targetProxy = 0F0308DF5085AFBC3C11A9E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07556D654A62691A3E22995D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityReportExtension/DeviceActivityReportExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityReportExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.report;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		08AA8F415AB15623C158E607 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.shieldconfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		1E39E2F7261583E49BDA8C50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityReportExtension/DeviceActivityReportExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityReportExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.report;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		24F42D94513ABFCA2CDCBD58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Horos/Resources/Horos.entitlements;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Horos/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		282F8BED7AC8E61EF9F4311F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		390CB4BFD2E1E7411CCEA203 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Horos/Resources/Horos.entitlements;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Horos/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		62DB0B35E2B2BE91F5081D75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.shieldaction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		6B7335647B72D250A1ED8ED5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.monitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7CD962CB95D871CF8C56D62D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ShieldConfigurationExtension/ShieldConfigurationExtension.entitlements;
+				INFOPLIST_FILE = ShieldConfigurationExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.shieldconfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BAA844323E141A79DF10B0D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED72870FF8D25C7ADE726C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = ShieldActionExtension/ShieldActionExtension.entitlements;
+				INFOPLIST_FILE = ShieldActionExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.shieldaction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DB99B82B6FF3EF78558B72A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = DeviceActivityMonitorExtension/DeviceActivityMonitorExtension.entitlements;
+				INFOPLIST_FILE = DeviceActivityMonitorExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.horos.app.monitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		09935812B4A2D45E1DBCDB2D /* Build configuration list for PBXNativeTarget "ShieldActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62DB0B35E2B2BE91F5081D75 /* Debug */,
+				CED72870FF8D25C7ADE726C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2ACCC90A05CFAAC3437C8840 /* Build configuration list for PBXNativeTarget "DeviceActivityReportExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E39E2F7261583E49BDA8C50 /* Debug */,
+				07556D654A62691A3E22995D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		97ED02B19D804F0BCC5C36A6 /* Build configuration list for PBXNativeTarget "Horos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				390CB4BFD2E1E7411CCEA203 /* Debug */,
+				24F42D94513ABFCA2CDCBD58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1CC7716EF52674464F3DBB1 /* Build configuration list for PBXNativeTarget "DeviceActivityMonitorExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB99B82B6FF3EF78558B72A8 /* Debug */,
+				6B7335647B72D250A1ED8ED5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E512FA7D4CCFB126300B1AE6 /* Build configuration list for PBXNativeTarget "ShieldConfigurationExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7CD962CB95D871CF8C56D62D /* Debug */,
+				08AA8F415AB15623C158E607 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F086F31674BEA44957E3CCA5 /* Build configuration list for PBXProject "Horos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				282F8BED7AC8E61EF9F4311F /* Debug */,
+				BAA844323E141A79DF10B0D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98F54143AB4E86B28C3AFEE0 /* Project object */;
+}

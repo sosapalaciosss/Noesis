@@ -5,20 +5,22 @@ A native iOS application blocker built on Apple's Screen Time API
 
 ## Getting started (macOS)
 
+`Horos.xcodeproj` is committed, so the simplest path is:
+
+```bash
+open Horos/Horos.xcodeproj      # then press ⌘R in Xcode
+```
+
+Or let the script build it first and then open it:
+
 ```bash
 cd Horos
-./Scripts/bootstrap.sh        # installs XcodeGen if needed, generates, builds, opens Xcode
+./Scripts/bootstrap.sh          # regenerates the project, builds all 5 targets, opens Xcode
 ```
 
-Or step by step:
-
-```bash
-brew install xcodegen
-xcodegen generate
-xcodebuild -project Horos.xcodeproj -scheme Horos \
-  -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
-open Horos.xcodeproj
-```
+The project file is produced by `Scripts/generate_xcodeproj.py` (plain Python,
+no XcodeGen required). Re-run it after adding or removing source files. The
+`project.yml` is kept as an equivalent XcodeGen spec for teams that prefer it.
 
 Before running on a device, set your **Development Team** on all five targets in
 Xcode (Signing & Capabilities). Family Controls requires a paid developer
