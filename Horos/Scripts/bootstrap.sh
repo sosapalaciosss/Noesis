@@ -21,9 +21,27 @@ done
 
 # ── 1. Xcode ─────────────────────────────────────────────────────────────────
 XCODE_APP=""
-for candidate in /Applications/Xcode*.app "$HOME/Applications"/Xcode*.app; do
-  [ -d "$candidate" ] && XCODE_APP="$candidate" && break
-done
+# Prefer whatever xcode-select already points at, if it is a full Xcode.
+CURRENT_DEV_DIR="$(xcode-select -p 2>/dev/null || true)"
+case "$CURRENT_DEV_DIR" in
+  */Contents/Developer) XCODE_APP="${CURRENT_DEV_DIR%/Contents/Developer}" ;;
+esac
+# Otherwise look in the usual folders, then ask Spotlight (finds it anywhere,
+# e.g. still sitting in Downloads or on the Desktop).
+if [ ! -d "$XCODE_APP" ]; then
+  XCODE_APP=""
+  for candidate in /Applications/Xcode*.app "$HOME/Applications"/Xcode*.app \
+                   "$HOME/Downloads"/Xcode*.app "$HOME/Desktop"/Xcode*.app; do
+    [ -d "$candidate" ] && XCODE_APP="$candidate" && break
+  done
+fi
+if [ -z "$XCODE_APP" ] && command -v mdfind >/dev/null 2>&1; then
+  XCODE_APP="$(mdfind "kMDItemCFBundleIdentifier == 'com.apple.dt.Xcode'" 2>/dev/null | head -1)"
+fi
+if [ -n "$XCODE_APP" ] && [ ! -x "$XCODE_APP/Contents/Developer/usr/bin/xcodebuild" ]; then
+  echo "✖ Found $XCODE_APP but it is not a complete Xcode (no xcodebuild inside)." >&2
+  XCODE_APP=""
+fi
 
 if [ -z "$XCODE_APP" ]; then
   cat >&2 <<'MSG'
@@ -41,9 +59,10 @@ MSG
   exit 1
 fi
 
+echo "▸ Found Xcode at: $XCODE_APP"
 DEVELOPER_DIR_CURRENT="$(xcode-select -p 2>/dev/null || true)"
 case "$DEVELOPER_DIR_CURRENT" in
-  *Xcode*.app*) ;;
+  "$XCODE_APP/Contents/Developer") ;;
   *)
     echo "▸ Pointing the command line tools at $XCODE_APP (you may be asked for your Mac password)"
     sudo xcode-select -s "$XCODE_APP/Contents/Developer" || exit 1
