@@ -21,10 +21,11 @@ final class AppState {
         self.storage = storage
         // In the Simulator the Screen Time daemons are absent; a dry-run engine
         // keeps every flow working without ever calling into them.
-        self.engine = engine ?? ShieldEngine(storage: storage, dryRun: AuthorizationViewModel.isSimulator)
+        let resolvedEngine = engine ?? ShieldEngine(storage: storage, dryRun: AuthorizationViewModel.isSimulator)
+        self.engine = resolvedEngine
         self.authorization = AuthorizationViewModel(storage: storage)
-        self.quickSession = QuickSessionViewModel(storage: storage, engine: engine)
-        self.schedules = SchedulesViewModel(storage: storage, engine: engine)
+        self.quickSession = QuickSessionViewModel(storage: storage, engine: resolvedEngine)
+        self.schedules = SchedulesViewModel(storage: storage, engine: resolvedEngine)
         self.analytics = AnalyticsViewModel(storage: storage)
 
         DarwinNotifier.observe(HorosConstants.DarwinNotification.attemptsDidChange)
