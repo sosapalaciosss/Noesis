@@ -3,6 +3,7 @@ import SwiftUI
 
 /// Shows what is currently selected for blocking: counts plus a strip of app
 /// and category icons rendered through the privacy-preserving `Label(token)`.
+@MainActor
 struct SelectionSummaryView: View {
     let selection: FamilyActivitySelection
     var emptyMessage = "Nothing selected yet"

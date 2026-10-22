@@ -2,6 +2,7 @@ import SwiftUI
 import Charts
 
 /// Swift Charts bar chart of blocked attempts, today highlighted in gold.
+@MainActor
 struct AttemptsBarChart: View {
     let series: [DailyAttemptCount]
 

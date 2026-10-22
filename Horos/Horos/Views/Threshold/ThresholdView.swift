@@ -2,6 +2,7 @@ import SwiftUI
 @preconcurrency import FamilyControls
 
 /// Tab 1 — instant focus sessions ("Quick Block").
+@MainActor
 struct ThresholdView: View {
     @Environment(AppState.self) private var appState
     private let ticker = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -172,6 +173,7 @@ struct ThresholdView: View {
 
 // MARK: - Active session
 
+@MainActor
 struct ActiveSessionCard: View {
     let model: QuickSessionViewModel
 
@@ -238,6 +240,7 @@ struct ActiveSessionCard: View {
 
 // MARK: - Custom duration
 
+@MainActor
 struct CustomDurationStepper: View {
     let model: QuickSessionViewModel
 

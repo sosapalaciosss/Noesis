@@ -4,6 +4,7 @@ import Charts
 
 /// Hosts the sandboxed `DeviceActivityReport` (rendered by the report
 /// extension) or, in the Simulator, a representative placeholder.
+@MainActor
 struct ScreenTimeReportCard: View {
     let filter: DeviceActivityFilter
     let selectionSummary: String
@@ -25,6 +26,7 @@ struct ScreenTimeReportCard: View {
 }
 
 /// Simulator stand-in for the report extension (which only runs on device).
+@MainActor
 struct PreviewScreenTimeView: View {
     private struct Sample: Identifiable {
         let day: Date

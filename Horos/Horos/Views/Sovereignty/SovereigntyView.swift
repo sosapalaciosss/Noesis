@@ -2,6 +2,7 @@ import SwiftUI
 @preconcurrency import DeviceActivity
 
 /// Tab 3 — blocked-attempt analytics and real Screen Time usage.
+@MainActor
 struct SovereigntyView: View {
     @Environment(AppState.self) private var appState
     @State private var showResetConfirmation = false
@@ -93,6 +94,7 @@ struct SovereigntyView: View {
 
 // MARK: - Attempts chart
 
+@MainActor
 struct AttemptsChartView: View {
     let series: [DailyAttemptCount]
     let peak: DailyAttemptCount?
@@ -112,6 +114,7 @@ struct AttemptsChartView: View {
 
 // MARK: - Recent attempts
 
+@MainActor
 struct RecentAttemptsList: View {
     let events: [BlockAttemptEvent]
 

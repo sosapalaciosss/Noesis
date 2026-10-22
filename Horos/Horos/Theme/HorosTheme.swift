@@ -102,6 +102,7 @@ struct ChipButtonStyle: ButtonStyle {
 
 // MARK: - Typography helpers
 
+@MainActor
 struct SectionHeader: View {
     let title: String
     var subtitle: String? = nil
@@ -122,6 +123,7 @@ struct SectionHeader: View {
     }
 }
 
+@MainActor
 struct StatTile: View {
     let title: String
     let value: String
@@ -169,6 +171,7 @@ struct HorosToggleStyle: ToggleStyle {
     }
 }
 
+@MainActor
 struct HorosBadge: View {
     let text: String
     var color: Color = HorosPalette.gold

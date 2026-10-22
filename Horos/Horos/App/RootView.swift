@@ -3,6 +3,7 @@ import SwiftUI
 
 /// Permission gate → main tabs. Also the single place where cross-process
 /// signals and scene phase changes are turned into model refreshes.
+@MainActor
 struct RootView: View {
     @Environment(AppState.self) private var appState
     @Environment(\.scenePhase) private var scenePhase

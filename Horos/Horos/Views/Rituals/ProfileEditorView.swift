@@ -2,6 +2,7 @@ import SwiftUI
 @preconcurrency import FamilyControls
 
 /// Create / edit sheet for a `BlockingProfile`.
+@MainActor
 struct ProfileEditorView: View {
     @Environment(\.dismiss) private var dismiss
 

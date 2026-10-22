@@ -1,6 +1,7 @@
 import SwiftUI
 
 /// Tab 2 — recurring blocking schedules.
+@MainActor
 struct RitualsView: View {
     @Environment(AppState.self) private var appState
 
@@ -104,6 +105,7 @@ struct RitualsView: View {
     }
 }
 
+@MainActor
 struct ProfileRowView: View {
     let profile: BlockingProfile
     let failure: String?

@@ -1,6 +1,7 @@
 import SwiftUI
 
 /// Seven round toggles in locale order.
+@MainActor
 struct WeekdayPicker: View {
     @Binding var selection: Set<Weekday>
 

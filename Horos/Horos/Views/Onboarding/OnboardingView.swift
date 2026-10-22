@@ -2,6 +2,7 @@ import SwiftUI
 
 /// Permission gate shown until Family Controls is approved (or preview mode
 /// is enabled in the Simulator).
+@MainActor
 struct OnboardingView: View {
     @Environment(AppState.self) private var appState
     @Environment(\.openURL) private var openURL
