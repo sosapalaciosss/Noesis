@@ -28,10 +28,15 @@ done
 if [ -z "$XCODE_APP" ]; then
   cat >&2 <<'MSG'
 ✖ Xcode is not installed.
-  Open the App Store, search for "Xcode", and install it (on macOS 13 the
-  App Store offers Xcode 15.2, which is the right version). After it has
-  installed, open Xcode once, accept the license, let it finish
-  "Installing components", then run this script again.
+  On macOS 14 or newer: install Xcode from the App Store.
+  On macOS 13: the App Store will not show it. Download Xcode 15.2 instead:
+    1. Open https://developer.apple.com/download/all/ in Safari and sign in
+       with your Apple ID (free, no developer program needed).
+    2. Search for "Xcode 15.2" and download Xcode_15.2.xip (about 7 GB).
+    3. Double-click the .xip in Downloads, wait for it to unpack, then drag
+       the Xcode app into your Applications folder.
+  Open Xcode once, accept the license, let it finish "Installing components"
+  (tick iOS if it asks which platforms to install), then run this script again.
 MSG
   exit 1
 fi
