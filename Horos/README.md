@@ -1,7 +1,7 @@
 # HOROS
 
 A native iOS application blocker built on Apple's Screen Time API
-(FamilyControls · ManagedSettings · DeviceActivity). Swift 6, SwiftUI, Swift Charts, iOS 17+.
+(FamilyControls · ManagedSettings · DeviceActivity). SwiftUI, Swift Charts, iOS 17+. Written for Swift 6 strict concurrency; ships in Swift 5 language mode so it builds with Xcode 15.2 on macOS 13 (set `SWIFT_VERSION: "6.0"` in project.yml on Xcode 16+).
 
 ## Getting started (macOS)
 

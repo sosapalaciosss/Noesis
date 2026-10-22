@@ -17,7 +17,9 @@ configs:
 
 settings:
   base:
-    SWIFT_VERSION: "6.0"
+    # Swift 5 language mode so the project builds with Xcode 15.2 (macOS 13).
+    # The code is written for Swift 6; flip to "6.0" once on Xcode 16+.
+    SWIFT_VERSION: "5.0"
     SWIFT_STRICT_CONCURRENCY: complete
     IPHONEOS_DEPLOYMENT_TARGET: "17.0"
     TARGETED_DEVICE_FAMILY: "1,2"

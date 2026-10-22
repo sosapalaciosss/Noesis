@@ -57,3 +57,4 @@ timeline.xctimeline
 fastlane/report.xml
 fastlane/screenshots/**/*.png
 fastlane/test_output
+Horos/build.log
