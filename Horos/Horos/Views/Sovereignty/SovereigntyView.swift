@@ -139,7 +139,7 @@ struct RecentAttemptsList: View {
                             Text("\(event.kind.label) · \(event.button == .primary ? "held the line" : "returned")")
                                 .font(.subheadline)
                                 .foregroundStyle(HorosPalette.textPrimary)
-                            Text("Target \(event.tokenHash.prefix(8))")
+                            Text("Target \(String(event.tokenHash.prefix(8)))")
                                 .font(.caption2)
                                 .foregroundStyle(HorosPalette.textTertiary)
                                 .monospaced()

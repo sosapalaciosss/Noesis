@@ -17,7 +17,7 @@ struct AppRoot: View {
     @State private var appState: AppState
 
     init() {
-        _appState = State(initialValue: AppState())
+        _appState = State(initialValue: MainActor.assumeIsolated { AppState() })
     }
 
     var body: some View {
