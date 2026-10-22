@@ -44,6 +44,12 @@ final class AuthorizationViewModel {
     }
 
     func refresh() {
+        // Family Controls has no backing service in the Simulator and querying
+        // it can block the main thread indefinitely, so never touch it there.
+        if Self.isSimulator {
+            status = storage.isPreviewModeEnabled ? .simulatorPreview : .notDetermined
+            return
+        }
         apply(AuthorizationCenter.shared.authorizationStatus)
     }
 
@@ -63,6 +69,12 @@ final class AuthorizationViewModel {
 
     func requestAccess() async {
         guard !isRequesting else { return }
+        if Self.isSimulator {
+            // Family Controls cannot be granted in the Simulator (the request
+            // never returns); preview mode is the only meaningful outcome.
+            enablePreviewMode()
+            return
+        }
         isRequesting = true
         defer { isRequesting = false }
 
@@ -70,18 +82,12 @@ final class AuthorizationViewModel {
             try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
             refresh()
         } catch {
-            if Self.isSimulator {
-                // Family Controls cannot be granted in the Simulator; fall back
-                // to preview mode automatically so UI work is never blocked.
-                enablePreviewMode()
-            } else {
-                refresh()
-                if status != .approved {
-                    alert = AlertState(
-                        title: "Screen Time access needed",
-                        message: error.localizedDescription
-                    )
-                }
+            refresh()
+            if status != .approved {
+                alert = AlertState(
+                    title: "Screen Time access needed",
+                    message: error.localizedDescription
+                )
             }
         }
     }

@@ -9,7 +9,7 @@ struct RootView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        Group {
+        let content = Group {
             if appState.authorization.isGranted {
                 MainTabView()
                     .transition(.opacity)
@@ -24,9 +24,6 @@ struct RootView: View {
         .onChange(of: scenePhase) { _, phase in
             appState.handleScenePhase(phase)
         }
-        .onReceive(AuthorizationCenter.shared.$authorizationStatus.receive(on: DispatchQueue.main)) { status in
-            appState.authorization.apply(status)
-        }
         .onReceive(NotificationCenter.default.publisher(for: .horosAttemptsDidChange).receive(on: DispatchQueue.main)) { _ in
             appState.analytics.refresh()
         }
@@ -34,5 +31,16 @@ struct RootView: View {
             appState.quickSession.refresh()
             appState.analytics.refresh()
         }
+
+        #if targetEnvironment(simulator)
+        // The Family Controls service does not exist in the Simulator; touching
+        // `AuthorizationCenter.shared` there can block the main thread.
+        return content
+        #else
+        return content
+            .onReceive(AuthorizationCenter.shared.$authorizationStatus.receive(on: DispatchQueue.main)) { status in
+                appState.authorization.apply(status)
+            }
+        #endif
     }
 }

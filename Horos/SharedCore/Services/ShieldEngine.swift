@@ -38,10 +38,15 @@ struct ShieldEngine: Sendable {
     }
 
     private let storage: SharedStorageManager
+    /// When true, every ManagedSettings / DeviceActivity call is skipped and
+    /// only the persisted state changes. Used in the Simulator, where the
+    /// Screen Time daemons do not exist and calling into them can block.
+    let dryRun: Bool
     private let logger = Logger(subsystem: HorosConstants.logSubsystem, category: "ShieldEngine")
 
-    init(storage: SharedStorageManager = .shared) {
+    init(storage: SharedStorageManager = .shared, dryRun: Bool = false) {
         self.storage = storage
+        self.dryRun = dryRun
     }
 
     // MARK: - Quick session
@@ -105,7 +110,9 @@ struct ShieldEngine: Sendable {
     @discardableResult
     func finishQuickSession() -> QuickSessionState {
         clear(storeNamed: HorosConstants.Store.quickSession)
-        DeviceActivityCenter().stopMonitoring([DeviceActivityName(HorosConstants.Activity.quickSession)])
+        if !dryRun {
+            DeviceActivityCenter().stopMonitoring([DeviceActivityName(HorosConstants.Activity.quickSession)])
+        }
         storage.saveQuickSession(.idle)
         DarwinNotifier.post(HorosConstants.DarwinNotification.sessionDidChange)
         logger.info("Quick session finished")
@@ -133,6 +140,7 @@ struct ShieldEngine: Sendable {
     }
 
     private func registerQuickSessionMonitoring(start: Date, end: Date) throws {
+        guard !dryRun else { return }
         let calendar = Calendar.current
         let components: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second]
         let schedule = DeviceActivitySchedule(
@@ -155,6 +163,10 @@ struct ShieldEngine: Sendable {
     @discardableResult
     func syncSchedules(profiles: [BlockingProfile]? = nil, now: Date = Date()) -> [UUID: EngineError] {
         let allProfiles = profiles ?? storage.profiles
+        if dryRun {
+            reconcileProfileShields(profiles: allProfiles, now: now)
+            return [:]
+        }
         let center = DeviceActivityCenter()
 
         let desired = allProfiles.filter { $0.isEnabled && $0.hasSelection && $0.scheduleIsValid }
@@ -270,7 +282,9 @@ struct ShieldEngine: Sendable {
 
     /// Tears down everything that belongs to a deleted profile.
     func deleteProfileArtifacts(id: UUID) {
-        DeviceActivityCenter().stopMonitoring([DeviceActivityName(HorosConstants.Activity.profile(id))])
+        if !dryRun {
+            DeviceActivityCenter().stopMonitoring([DeviceActivityName(HorosConstants.Activity.profile(id))])
+        }
         let name = HorosConstants.Store.profile(id)
         clear(storeNamed: name)
         storage.unregisterStoreName(name)
@@ -285,7 +299,9 @@ struct ShieldEngine: Sendable {
         for name in names {
             clear(storeNamed: name)
         }
-        DeviceActivityCenter().stopMonitoring()
+        if !dryRun {
+            DeviceActivityCenter().stopMonitoring()
+        }
         storage.saveQuickSession(.idle)
         for profile in storage.profiles {
             storage.updateRuntimeState(for: profile.id) { $0.isShieldApplied = false }
@@ -350,6 +366,11 @@ struct ShieldEngine: Sendable {
     // MARK: - Primitives
 
     private func apply(selection: FamilyActivitySelection, toStoreNamed name: String) {
+        storage.registerStoreName(name)
+        guard !dryRun else {
+            logger.debug("dry run: would shield \(FamilyActivitySelectionCoder.count(selection)) targets in \(name, privacy: .public)")
+            return
+        }
         let store = ManagedSettingsStore(named: ManagedSettingsStore.Name(name))
         store.shield.applications = selection.applicationTokens.isEmpty ? nil : selection.applicationTokens
         store.shield.applicationCategories = selection.categoryTokens.isEmpty
@@ -359,10 +380,10 @@ struct ShieldEngine: Sendable {
         store.shield.webDomainCategories = selection.categoryTokens.isEmpty
             ? nil
             : .specific(selection.categoryTokens, except: [])
-        storage.registerStoreName(name)
     }
 
     private func clear(storeNamed name: String) {
+        guard !dryRun else { return }
         ManagedSettingsStore(named: ManagedSettingsStore.Name(name)).clearAllSettings()
     }
 }

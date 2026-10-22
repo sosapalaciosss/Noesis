@@ -17,9 +17,11 @@ final class AppState {
 
     var selectedTab: HorosTab = .threshold
 
-    init(storage: SharedStorageManager = .shared, engine: ShieldEngine = .shared) {
+    init(storage: SharedStorageManager = .shared, engine: ShieldEngine? = nil) {
         self.storage = storage
-        self.engine = engine
+        // In the Simulator the Screen Time daemons are absent; a dry-run engine
+        // keeps every flow working without ever calling into them.
+        self.engine = engine ?? ShieldEngine(storage: storage, dryRun: AuthorizationViewModel.isSimulator)
         self.authorization = AuthorizationViewModel(storage: storage)
         self.quickSession = QuickSessionViewModel(storage: storage, engine: engine)
         self.schedules = SchedulesViewModel(storage: storage, engine: engine)
@@ -36,10 +38,8 @@ final class AppState {
         authorization.refresh()
         guard authorization.isGranted else { return }
 
-        if authorization.status == .approved {
-            engine.reconcileQuickSession()
-            engine.syncSchedules()
-        }
+        engine.reconcileQuickSession()
+        engine.syncSchedules()
         quickSession.refresh()
         schedules.load()
         analytics.refresh(previewMode: authorization.status == .simulatorPreview)
