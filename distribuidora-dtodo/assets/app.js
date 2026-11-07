@@ -11,11 +11,11 @@
       desc: 'Harinas de trigo y arroz de alto rendimiento, huevos frescos de granja con yema firme y aceites para panificación. Un pedido cubre tu semana.',
       products: ['Harina de Trigo El Panadero 50 lb', 'Harina de Arroz Tío Pepe 25 lb', 'Huevos de granja', 'Aceite vegetal'],
       cta: 'Cotizar para mi panadería', msg: 'Hola D Todo, tengo una panadería/pupusería y quiero cotizar harinas, huevos y aceite.' },
-    rest: { label: 'Restaurantes, pollerías y comedores', tag: 'Cocina profesional',
-      title: 'Pollo fresco directo de nuestra granja.', image: IMG('photo-1414235077428-338989a2e8c0'),
-      desc: 'Pollo y gallina fresca directa de nuestra granja y aceite para fritura profunda. Calidad constante para que tu menú salga igual todos los días.',
-      products: ['Pollo fresco', 'Gallina', 'Huevos de granja', 'Aceite para fritura'],
-      cta: 'Cotizar para mi restaurante', msg: 'Hola D Todo, tengo un restaurante/pollería/comedor y quiero cotizar pollo, gallina y aceite.' },
+    rest: { label: 'Restaurantes, comedores y cafeterías', tag: 'Cocina profesional',
+      title: 'Insumos constantes para tu cocina diaria.', image: IMG('photo-1414235077428-338989a2e8c0'),
+      desc: 'Huevos frescos de nuestra granja, aceite de alto rendimiento para fritura y harinas para masas, empanizados y repostería. Calidad constante para que tu menú salga igual todos los días.',
+      products: ['Huevos de granja', 'Aceite para fritura', 'Harina de trigo', 'Harina de arroz'],
+      cta: 'Cotizar para mi restaurante', msg: 'Hola D Todo, tengo un restaurante/comedor/cafetería y quiero cotizar huevos, aceite y harinas.' },
     may: { label: 'Mayoristas y tiendas de abasto', tag: 'Reventa',
       title: 'Precios por volumen para maximizar tu margen.', image: IMG('photo-1542838132-92c53300491e'),
       desc: 'Precios especiales por volumen en quintales, fardos y cajas para maximizar tu margen de ganancia. Compra al productor y revende con ventaja.',
@@ -24,10 +24,10 @@
     hot: { label: 'Hoteles y catering', tag: 'Servicio de eventos',
       title: 'Volumen garantizado, entrega puntual.', image: IMG('photo-1555244162-803834f70033'),
       desc: 'Abastecimiento puntual, volumen garantizado y trazabilidad de cada producto. Planifica eventos y temporadas altas sin riesgo de faltantes.',
-      products: ['Huevos clasificados', 'Pollo y gallina', 'Harinas', 'Aceites'],
+      products: ['Huevos clasificados', 'Harina de trigo', 'Harina de arroz', 'Aceites'],
       cta: 'Cotizar para mi hotel o catering', msg: 'Hola D Todo, tengo un hotel/servicio de catering y quiero cotizar abastecimiento por volumen.' }
   };
-  var ITEMS = ['Huevos', 'Pollo / Gallina', 'Harinas', 'Aceite'];
+  var ITEMS = ['Huevos', 'Harinas', 'Aceite'];
 
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
